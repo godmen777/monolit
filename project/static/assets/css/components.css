@@ -1501,7 +1501,8 @@ textarea.contact-form {
 }
 
 .newest-properties {
-    background-color: #fcfdfd
+    /*background-color: #fcfdfd;*/
+    background-color: #EDF6E9;
 }
 
 .newest-properties .newest-properties-content {
