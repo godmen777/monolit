@@ -1,0 +1,136 @@
+{% load static from staticfiles %}
+{% load core_tags %}
+{% load configs_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Sunhouse | Home</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Font css-->
+	<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,700,900">
+	<link type="text/css" rel="stylesheet" href="/static/assets/font/font-icon/font-awesome-4.4.0/css/font-awesome.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/font/font-icon/font-svg/style.css">
+	<!-- Library css-->
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/bootstrap-3.3.6/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/animate/animate.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/owl-carousel-2.0/assets/owl.carousel.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/selectbox/css/jquery.selectbox.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/range-slider/jquery.nstSlider.min.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/datetimepicker/css/bootstrap-datetimepicker.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/fancybox/css/jquery.fancybox.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/fancybox/css/jquery.fancybox-buttons.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/slick/slick.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/slick/slick-theme.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/select2/select2.min.css">
+	<!-- style css-->
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/layout.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/top_menu.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/authentication.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/components.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/responsive.css">
+	<!-- LOADING SCRIPTS FOR PAGE--></head>
+<body><!-- HEADER-->
+<header>
+	<div class="bg-transparent">
+		{% top_menu request %}
+		{% base_menu request %}
+	</div>
+</header>
+<!-- WRAPPER-->
+<div id="wrapper-content"><!-- PAGE WRAPPER-->
+	<div id="page-wrapper"><!-- MAIN CONTENT-->
+		<div class="main-content"><!-- CONTENT-->
+			<div class="content">
+
+				{% block banner_block %}
+				{% endblock banner_block %}
+
+				{% block about_block %}
+				{% endblock about_block %}
+
+				{% block search_block %}
+				{% endblock search_block %}
+
+				{% block houses_block %}
+				{% endblock houses_block %}
+
+				{% block services_block %}
+				{% endblock services_block %}
+
+				{% block trigger1_block %}
+				{% endblock trigger1_block %}
+
+				{% block agents_block %}
+				{% endblock agents_block %}
+
+				{% block zindex_block %}
+				{% endblock zindex_block %}
+
+				{% block reviews_block %}
+				{% endblock reviews_block %}
+
+				{% block logos_block %}
+				{% endblock logos_block %}
+
+				{% block contact_form %}
+				{% endblock contact_form %}
+				
+			</div>
+		</div>
+	</div>
+	<!-- BUTTON BACK TO TOP-->
+	<div id="back-top"><a href="index.html#top"><i class="fa fa-angle-double-up"></i></a></div>
+</div>
+<!-- FOOTER-->
+<footer>
+	<div class="bg-dark">
+
+		{% block footer_block %}
+		{% endblock footer_block %}
+
+		<div class="clearfix"></div>
+		<div class="hyperlink">
+			<div class="container">
+				<div class="pull-left hyper-left"><span>&copy; Создание сайтов</span><span class="name">Evil Monkey.</span></div>
+				<!---<div class="pull-right hyper-right">
+					<ul>
+						<li><a href="index.html" class="link">Home</a></li>
+						<li><a href="index.html#" class="link">FAQ</a></li>
+						<li><a href="index.html#" class="link">Privacy & Term</a></li>
+						<li><a href="contact.html" class="link">Contact</a></li>
+						<li><a href="index.html#" class="link">Help</a></li>
+					</ul>
+				</div>-->
+			</div>
+		</div>
+	</div>
+</footer>
+<!--.body-2.loading<div class="dots-loader"></div>--><!-- JAVASCRIPT LIBS-->
+<script src="/static/assets/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="/static/assets/libs/detect/browser.js"></script>
+<script src="/static/assets/libs/moment/js/moment.min.js"></script>
+<script src="/static/assets/libs/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<script src="/static/assets/libs/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/assets/libs/smooth-scroll/jquery-smoothscroll.js"></script>
+<script src="/static/assets/libs/owl-carousel-2.0/owl.carousel.min.js"></script>
+<script src="/static/assets/libs/fancybox/js/jquery.fancybox.js"></script>
+<script src="/static/assets/libs/fancybox/js/jquery.fancybox-buttons.js"></script>
+<script src="/static/assets/libs/appear/jquery.appear.js"></script>
+<script src="/static/assets/libs/count-to/jquery.countTo.js"></script>
+<script src="/static/assets/libs/wow-js/wow.min.js"></script>
+<script src="/static/assets/libs/selectbox/js/jquery.selectbox-0.2.min.js"></script>
+<script src="/static/assets/libs/select2/select2.min.js"></script>
+<script src="/static/assets/libs/range-slider/jquery.nstSlider.min.js"></script>
+<script src="/static/assets/libs/parallax/jquery.data-parallax.min.js"></script>
+<script src="/static/assets/libs/slick/slick.min.js"></script>
+<!-- MAIN JS-->
+<script src="/static/assets/js/main.js"></script>
+<!-- LOADING SCRIPTS FOR PAGE-->
+
+{% block modal_block %}
+{% endblock modal_block %}
+
+</body>
+</html>
