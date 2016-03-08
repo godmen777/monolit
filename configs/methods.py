@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from models import Config
+from configs.models import Config
 
 def get_site_config(request):
 	try:
