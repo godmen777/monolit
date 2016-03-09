@@ -5,13 +5,58 @@
 
 
 {% block content %}
-<div class="flatblock-edit">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h3>Спасибо большое , мы свяжемся с Вами в ближайшее время</h3>			
+<div class="section">
+		<div class="container">
+			<div class="">
+				<div class="sunhouse-title">
+					<div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
+					<h2 class="main-title">{{ project.name }}</h2>
+
+					<p class="sub-title">Мы охотим сделать поиск Вашего любимого дома как можно проще!</p></div>
+				<div class="row">
+					<div class="newest-properties-content">
+
+						<div class="col-md-12">
+							<div class="sunhouse-item">
+								<a href="{{ project.get_url }}" class="wrapper-image">
+									<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-1"/>
+									<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-2"/>
+								</a>
+								{% if project.for_sale %}
+									<div class="note for-rent"><p class="text">Продажа</p></div>
+								{% else %}
+									<div class="note for-sale"><p class="text">Проект</p></div>
+								{% endif %}
+								<div class="wrapper-content">
+									<div class="info-house">
+										<div class="info">
+											<i class="icon-house_1"></i>
+											<p>{{ project.square }} м²</p>
+										</div>
+										<div class="info">
+											<i class="icon-bed"></i>
+											<p>{{ project.badrooms }} спльных комнат</p>
+										</div>
+										<div class="info">
+											<i class="icon-bath"></i>
+											<p>{{ project.bathrooms }} ванных комнат</p>
+										</div>
+									</div>
+									<div class="about-house"><a href="search-properties.html" class="title">{{ project.name }}</a>
+										<div class="text">{{ project.text|safe }}</div>
+									</div>
+									<div class="more-info-house">
+										{# <div class="place-house"><i class="fa fa-map-marker"></i><a href="index.html#">{{ project.address }}</a></div> #}
+										{# <div class="price"><a href="{{ project.get_url }}" class="btn btn-blue">подробнее</a></div> #}
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 {% endblock content %}

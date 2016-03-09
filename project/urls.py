@@ -37,6 +37,7 @@ urlpatterns = [
     url(r'^', include('core.urls')),
     url(r'^', include('authentication.urls')),
     url(r'^', include('configs.urls')),
+    url(r'^', include('siteprojects.urls')),
 ]
 
 

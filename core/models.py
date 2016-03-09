@@ -18,6 +18,8 @@ class Service(models.Model):
 	icon = models.CharField(max_length=200, 
 							verbose_name=u"Иконка для услуги")
 
+	image = models.ImageField(upload_to="services")
+
 	text = RichTextUploadingField()
 
 	is_home = models.BooleanField(default=False, 
@@ -52,6 +54,9 @@ class Service(models.Model):
 
 	def get_url(self):
 		return "/services/%s" % self.slug
+
+	def get_image_url(self):
+		return "/media/%s" % self.image
 
 
 
@@ -115,6 +120,8 @@ class Post(models.Model):
 							verbose_name=u"Иконка для статьи", 
 							help_text=u'пример: <i class="icon-our-service icon-house_sell"></i>')
 
+	image = models.ImageField(upload_to="services")
+
 	text = RichTextUploadingField()
 
 	meta_keywords = models.CharField(verbose_name=u'Мета ключевые слова', 
@@ -143,6 +150,9 @@ class Post(models.Model):
 
 	def get_url(self):
 		return "/posts/%s" % self.slug
+
+	def get_image_url(self):
+		return "/media/%s" % self.image
 
 
 

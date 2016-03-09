@@ -1,4 +1,8 @@
 @import "http://webfonts.ru/import/raleway.css";
+
+.post-item {
+    margin-bottom: 20px;
+}
 .flatblock {
     position: relative;
 }
@@ -48,15 +52,14 @@
 
 .btn {
     text-transform: uppercase;
-    width: 200px;
-    line-height: 48px;
-    padding: 0;
+    line-height: 38px;
+    padding: 0 20px;
     font-weight: 700;
     border-radius: 0;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     text-align: center;
-    transition: all 0.5s ease
+    transition: all 0.5s ease;
 }
 
 .btn.btn-sm {
@@ -68,13 +71,21 @@
 }
 
 .btn.btn-blue {
-    background-color: #00c853;
+    background-color: #37474F;
     color: #fff
+}
+.btn.btn-blue.accent {
+    background-color: #00C853;
+}
+
+.btn.btn-blue.accent:hover {
+    background-color: #fff;
+    color: #00C853
 }
 
 .btn.btn-blue:hover {
-    background-color: #fff;
-    color: #00c853
+    background-color: #00C853;
+    color: #FFFFFF;
 }
 
 .btn.btn-white {
@@ -87,10 +98,10 @@
     color: #fff
 }
 
+.about-house-banner-wrapper 
 .btn.btn-transparent {
-    background: transparent;
-    border: 2px solid;
-    line-height: 46px
+    float: right;
+    margin-top: 10px;
 }
 
 .btn.btn-transparent.white {
@@ -225,15 +236,19 @@
 
 .sunhouse-title .main-title {
     font-size: 2.143em;
-    color: #3d4448;
+    color: #37474F;
     font-weight: 900;
     margin: 0;
     margin-bottom: 10px;
     text-transform: uppercase
 }
 
+.newest-properties-wrapper .sunhouse-title .main-title {
+    color: #fff;
+}
+
 .sunhouse-title .sub-title {
-    color: #5e6d77;
+    color: #78909C;
     font-size: 1.14em;
     margin: 0
 }
@@ -1387,7 +1402,7 @@ textarea.contact-form {
 .banner-sale-off .name-house .title {
     text-transform: uppercase;
     font-size: 2.143em;
-    color: #34495e;
+    color: #37474F;
     margin: 0;
     margin-bottom: 5px;
     font-weight: 900
@@ -1453,7 +1468,7 @@ textarea.contact-form {
 
 .our-service-items .icon-wrapper .icon-our-service {
     font-size: 60px;
-    color: #00c853;
+    color: #00C853;
     position: relative;
     z-index: 2;
     transition: all 0.7s ease
@@ -1470,6 +1485,14 @@ textarea.contact-form {
     font-size: 1.14em;
     margin-bottom: 0;
     margin-bottom: 50px
+}
+
+.btn-readmore {
+    text-transform: uppercase;
+    color: #00c853;
+    font-weight: 700;
+    text-align: center;
+    transition: all 0.5s ease
 }
 
 .our-service-items .btn-readmore {
@@ -1502,7 +1525,8 @@ textarea.contact-form {
 
 .newest-properties {
     /*background-color: #fcfdfd;*/
-    background-color: #EDF6E9;
+    /*background-color: #EDF6E9;*/
+    background-color: #37474F;
 }
 
 .newest-properties .newest-properties-content {
@@ -1651,7 +1675,7 @@ textarea.contact-form {
 }
 
 .new-letter-wrapper {
-    background-color: #00c853;
+    background-color: #37474F;
     color: #fff
 }
 
@@ -1757,14 +1781,15 @@ textarea.contact-form {
 .about-house-section .about-house-banner {
     position: absolute;
     width: 400px;
-    bottom: 160px
+    bottom: 40px
 }
 
 .about-house-section .about-house-banner .about-house-banner-wrapper {
     background-color: #00c853;
     color: #fff;
     padding: 10px 20px;
-    text-align: center
+    text-align: center;
+    overflow: hidden;
 }
 
 .about-house-section .about-house-banner .about-house-banner-wrapper .title {
@@ -1800,9 +1825,9 @@ textarea.contact-form {
 }
 
 .about-house-section .about-house-banner .about-house-banner-wrapper .price-for-house {
-    padding: 30px 0 7px 0;
-    text-align: center;
-    font-size: 1.2em
+    padding: 18px 0 7px 0;
+    float: left;
+    font-size: 1.2em;
 }
 
 .about-house-section .about-house-banner .about-house-banner-wrapper .price-for-house .sub-price {
@@ -1812,7 +1837,7 @@ textarea.contact-form {
 }
 
 .about-house-section .about-house-banner .about-house-banner-wrapper .price-for-house .price sup {
-    top: -33px
+    /*top: -33px*/
 }
 
 .about-house-section .about-house-banner .info-house {
