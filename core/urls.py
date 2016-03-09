@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 import core.views as views
-from core.views import ContactFormView, success
 
 
 urlpatterns = [
     # url(r'^$', views.home, name='home'),
-    url(r'^$', ContactFormView.as_view(), name="home"),
-    url(r'success/$', success, name="success"),
+    url(r'^$', views.ContactFormView.as_view(), name="home"),
+    url(r'services/(?P<slug>[-\w]+)/$', views.service_item, name="service_item"),
+    url(r'posts/(?P<slug>[-\w]+)/$', views.post_item, name="post_item"),
+    url(r'success/$', views.success, name="success"),
 ]

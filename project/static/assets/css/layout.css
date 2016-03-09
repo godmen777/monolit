@@ -12,7 +12,7 @@ body {
     font-size: 14px;
     line-height: 24px;
     font-weight: 400;
-    color: #5e6d77;
+    color: #37474F;
     background-color: #fff
 }
 .black-text {
@@ -753,7 +753,7 @@ header .bg-transparent .dropdown-language li:hover a {
     -moz-border-radius: 0;
     border: none;
     padding: 0;
-    border-bottom: 2px solid #00c853;
+    border-top: 2px solid #00c853;
     transition: all 0.6s ease
 }
 
@@ -941,7 +941,7 @@ header .bg-transparent .dropdown-language li:hover a {
 }
 
 footer .bg-dark .footer-main {
-    background-color: #292f32;
+    background-color: #37474F;
     color: #e5ecf1
 }
 

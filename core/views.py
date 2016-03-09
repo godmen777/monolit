@@ -33,5 +33,16 @@ class ContactFormView(FormView):
 		return super(ContactFormView, self).form_valid(form)
 
 
+def service_item(request, slug, template_name="core/service_item.html"):
+	service = Service.objects.get(slug=slug)
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
+
+def post_item(request, slug, template_name="core/post_item.html"):
+	post = Post.objects.get(slug=slug)
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
 def success(request, template_name="configs/success.html"):
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))

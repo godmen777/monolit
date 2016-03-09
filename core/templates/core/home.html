@@ -50,8 +50,7 @@
 					<div class="about-house-banner-wrapper"><a href="index.html#" class="title">Специальное предложение</a><a href="index.html#" class="address">Дом на побережье моря в экологически чистой зоне</a>
 
 						<div class="price-for-house">
-							<div class="price"><sup><i class="fa fa-rub"></i></sup><span class="amount">11</span><span class="small amount">,999</span></div>
-							<div class="sub-price">м²</div>
+							<div class="price"><sup><i class="fa fa-rub"></i></sup><span class="amount">11</span><span class="small amount">,999 / м²</span></div>
 						</div>
 						<a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-transparent white">Отправить заявку</a>
 					</div>
@@ -171,7 +170,7 @@
 				<h2 class="title">{{ service_main.name }}</h2>
 
 				<p class="content">{{ service_main.text|safe|truncatechars:250 }}</p>
-				<a href="{{ service_main.get_url }}" class="btn btn-blue">подробнее</a>
+				<a href="{{ service_main.get_url }}" class="btn btn-blue accent">подробнее</a>
 			</div>
 		</div>
 	</div>
@@ -197,7 +196,8 @@
 								<div class="post-item">
 									<h4>{{ post.name }}</h4>
 									<div class="text">{{ post.text|safe|truncatechars:200 }}</div>
-									<a href="{{ post.get_url }}" class="btn btn-white btn-sm">Подробнее</a>
+									<a href="{{ post.get_url }}" class="btn-readmore">Подробнее</a>
+									{# <a href="{{ post.get_url }}" class="">Подробнее</a> #}
 								</div>
 							{% endfor %}
 						</div>
