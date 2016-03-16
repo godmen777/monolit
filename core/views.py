@@ -38,6 +38,10 @@ def service_item(request, slug, template_name="core/service_item.html"):
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
+def page_item(request, slug, template_name="core/page_item.html"):
+	page = Page.objects.get(slug=slug)
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
 
 def post_item(request, slug, template_name="core/post_item.html"):
 	post = Post.objects.get(slug=slug)
