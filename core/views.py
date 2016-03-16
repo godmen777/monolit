@@ -44,5 +44,10 @@ def post_item(request, slug, template_name="core/post_item.html"):
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
+def post_list(request, template_name="core/post_list.html"):
+	posts = Post.objects.all()
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
 def success(request, template_name="configs/success.html"):
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))

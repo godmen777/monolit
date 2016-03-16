@@ -6,9 +6,11 @@ class ServiceAdmin(admin.ModelAdmin):
 	model = Service
 	prepopulated_fields = { 'slug': ('name', ), }
 
+
 class PostAdmin(admin.ModelAdmin):
 	model = Post
 	prepopulated_fields = { 'slug': ('name', ), }
+
 
 class PageAdmin(admin.ModelAdmin):
 	model = Page
