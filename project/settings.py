@@ -149,7 +149,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = "/Users/greenteamer/Desktop/Django/applications/monolit/project/media/"
+MEDIA_ROOT = "/home/django/monolit/project/media/"
 
 
 try:
