@@ -65,6 +65,9 @@ class Account(AbstractBaseUser):
     def get_short_name(self):
         return self.email
 
+    def get_full_name(self):
+        return self.email
+
     def has_perm(self, perm, obj=None):
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
