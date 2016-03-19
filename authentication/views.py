@@ -27,6 +27,8 @@ def loginView(request,template_name="authentication/login.html"):
                 return HttpResponseRedirect('/account')
         else:
             message = u'неправильно введен логин или пароль! Попробуйте еще раз'
+    else:
+        form = AccountForm()
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
