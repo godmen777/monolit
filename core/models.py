@@ -216,3 +216,17 @@ class Partner(models.Model):
 
 	def get_logo_url(self):
 		return "/media/%s" % self.logo
+
+
+class Notes(models.Model):
+	title 	= models.CharField(max_length=100)
+	text 	= models.TextField()
+
+	def __str__(self):
+		return self.title
+
+	# def __unicode__(self):
+	# 	return self.title
+
+	# def __str__(self):
+ #        return self.title

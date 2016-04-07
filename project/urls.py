@@ -16,21 +16,29 @@ Including another URLconf
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from django.conf import settings
-from rest_framework import routers, serializers, viewsets
-
 # flatblocks edit
 from flatblocks.views import edit
 from django.contrib.auth.decorators import login_required
-
+# Accounts
 from authentication.models import Account
+# REST API
+from rest_framework import routers, serializers, viewsets
 from restapi.views import *
-
 router = routers.DefaultRouter()
 router.register(r'accounts', AccountsViewSet)
+# GraphQL
+from django.views.decorators.csrf import csrf_exempt
+from graphene.contrib.django.views import GraphQLView
+
+from core.schema import schema
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
+    url(r'^graphql', csrf_exempt(GraphQLView.as_view(schema=schema))),
+    url(r'^graphiql', include('django_graphiql.urls')),
+    
     url(r'^api/', include(router.urls)),
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit), name='flatblocks-edit'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
@@ -38,6 +46,7 @@ urlpatterns = [
     url(r'^', include('authentication.urls')),
     url(r'^', include('configs.urls')),
     url(r'^', include('siteprojects.urls')),
+    # url(r'^graphql', csrf_exempt(GraphQLView.as_view(schema=schema))),
 ]
 
 

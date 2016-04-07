@@ -11,10 +11,12 @@ from configs.methods import get_site_config
 # 	form = ContactForm()
 # 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
+
 class ContactFormView(FormView):
 	template_name = "core/home.html"
 	form_class = ContactForm
 	success_url = "/success"
+
 
 	def get_context_data(self, **kwargs):
 		context = super(ContactFormView, self).get_context_data(**kwargs)
