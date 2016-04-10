@@ -3430,7 +3430,7 @@ textarea.contact-form {
 .contact-agent-widget .media {
     margin-top: 0px;
     padding: 30px 0px;
-    border-bottom: 1px solid #6dc5fe
+    border-bottom: 1px solid #46FA91
 }
 
 .contact-agent-widget .media-left {
@@ -3498,14 +3498,14 @@ textarea.contact-form {
     margin-left: 20px;
     text-align: center;
     line-height: 33px;
-    border: 1px solid #6dc5fe;
+    border: 1px solid #46FA91;
     margin-bottom: 20px;
     transition: all 0.5s ease
 }
 
 .contact-agent-widget .social-info .link:hover {
-    border-color: #48b8ff;
-    background-color: #48b8ff
+    border-color: #46FA91;
+    background-color: #46FA91
 }
 
 .seller-info-widget .agent-property {

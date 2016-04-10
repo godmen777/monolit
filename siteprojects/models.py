@@ -6,6 +6,8 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from mptt.models import MPTTModel, TreeForeignKey
 
+from authentication.models import Account
+
 
 class Category(MPTTModel):
 	"""Класс для категорий проектов"""
@@ -59,8 +61,10 @@ class Amenities(models.Model):
 
 
 class Project(models.Model):
+	account    = models.ForeignKey(Account)
 	category   = models.ForeignKey(Category)
-	amenities  = models.ManyToManyField(Amenities, blank=True)
+	amenities  = models.ManyToManyField(Amenities, 
+					blank=True)
 	name       = models.CharField(max_length=100,
 					verbose_name=u'Название проекта')
 	address    = models.CharField(max_length=100,
@@ -75,6 +79,8 @@ class Project(models.Model):
 					blank=True)
 	for_sale   = models.BooleanField(default=False,
 					verbose_name=u"на продажу")
+	featured   = models.BooleanField(default=False,
+					verbose_name=u"В интересное")
 	square     = models.IntegerField(verbose_name=u'Площадь дома')
 	badrooms   = models.IntegerField(verbose_name=u'Колличество спален')
 	bathrooms  = models.IntegerField(verbose_name=u'Колличество ванных комнат')
@@ -93,7 +99,7 @@ class Project(models.Model):
 	def get_url(self):
 		return "/projects/%s" % self.slug
 	def get_image(self):
-		return ProjectImages.objects.filter(project=self).first()
+		return ProjectImage.objects.filter(project=self).first()
 	def get_all_images(self):
 		return ProjectImage.objects.filter(project=self)
 
@@ -124,5 +130,10 @@ class ProjectImage(models.Model):
 	def get_url_750x455(self):
 		if self.image and self.image != '':
 			return "/media/%s" % self.cropping_750x455
+		else:
+			return '/static/images/none_image.png'
+	def get_url_250x375(self):
+		if self.image and self.image != '':
+			return "/media/%s" % self.cropping_250x375
 		else:
 			return '/static/images/none_image.png'
