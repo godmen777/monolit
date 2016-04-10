@@ -39,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
+    # 'graphql-core',
+    # 'graphql-relay',
+    'django_graphiql',
+    'graphene.contrib.django',
+    # 'graphene',
+
     'sitetree',
     'rest_framework',
     'authentication',
@@ -51,6 +58,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'image_cropping',
     'easy_thumbnails',
+
+    # 'graphene'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -155,6 +164,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = "/home/django/monolit/project/media/"
 
+GRAPHENE_SCHEMA = 'core.schema'
 
 try:
     from project.settings_local import *

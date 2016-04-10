@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Service, Post, Page, Review, Partner
+from core.models import Service, Post, Page, Review, Partner, Notes
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -21,3 +21,4 @@ admin.site.register(Post, PostAdmin)
 admin.site.register(Page, PageAdmin)
 admin.site.register(Review)
 admin.site.register(Partner)
+admin.site.register(Notes)

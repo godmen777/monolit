@@ -4,59 +4,195 @@
 {% load cropping %}
 
 
-{% block content %}
-<div class="section">
+{% block banner_block %}
+	<div class="section background-opacity page-title property-detail bg-overlay">
 		<div class="container">
-			<div class="">
-				<div class="sunhouse-title">
-					<div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
-					<h2 class="main-title">{{ project.name }}</h2>
+			<div class="page-title-wrapper">
+				<h2 class="captions">{{ project.name }}</h2>
+				<ol class="breadcrumb">
+					<li><a href="index.html">{{ project.address }}</a></li>
+				</ol>
+			</div>
+		</div>
+	</div>
+{% endblock banner_block %}
 
-					<p class="sub-title">Мы охотим сделать поиск Вашего любимого дома как можно проще!</p></div>
+
+{% block search_block %}
+	<div class="section nav-bar">
+		<div class="nav-bar-wrapper">
+			<div class="container">
 				<div class="row">
-					<div class="newest-properties-content">
-
-						<div class="col-md-12">
-							<div class="sunhouse-item">
-								<a href="{{ project.get_url }}" class="wrapper-image">
-									<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-1"/>
-									<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-2"/>
-								</a>
-								{% if project.for_sale %}
-									<div class="note for-rent"><p class="text">Продажа</p></div>
-								{% else %}
-									<div class="note for-sale"><p class="text">Проект</p></div>
-								{% endif %}
-								<div class="wrapper-content">
-									<div class="info-house">
-										<div class="info">
-											<i class="icon-house_1"></i>
-											<p>{{ project.square }} м²</p>
-										</div>
-										<div class="info">
-											<i class="icon-bed"></i>
-											<p>{{ project.badrooms }} спльных комнат</p>
-										</div>
-										<div class="info">
-											<i class="icon-bath"></i>
-											<p>{{ project.bathrooms }} ванных комнат</p>
-										</div>
-									</div>
-									<div class="about-house"><a href="search-properties.html" class="title">{{ project.name }}</a>
-										<div class="text">{{ project.text|safe }}</div>
-									</div>
-									<div class="more-info-house">
-										{# <div class="place-house"><i class="fa fa-map-marker"></i><a href="index.html#">{{ project.address }}</a></div> #}
-										{# <div class="price"><a href="{{ project.get_url }}" class="btn btn-blue">подробнее</a></div> #}
-									</div>
-								</div>
-							</div>
-						</div>
-
-						
+					<div class="col-md-8">
+						<ul class="detail-nav list-unstyled">
+							<li class="nav-item on-top-btn active">
+								<figure><i class="icon-house_1 icon"></i>
+									<figcaption>В начало</figcaption>
+								</figure>
+							</li>
+							<li class="nav-item condition-btn">
+								<figure><i class="fa fa-map-marker icon"></i>
+									<figcaption>Условия</figcaption>
+								</figure>
+							</li>
+							<li class="nav-item description-btn">
+								<figure><i class="fa fa-comment-o icon"></i>
+									<figcaption>Удобства</figcaption>
+								</figure>
+							</li>
+							<li class="nav-item location-btn">
+								<figure><i class="fa fa-file-text-o icon"></i>
+									<figcaption>Описание</figcaption>
+								</figure>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+{% endblock search_block %}
+
+{% block content %}
+	<div class="section property-detail">
+		<div class="container">
+			<div class="detail-wrapper row">
+				<div class="col-md-8 detail-content">
+					<div class="property-info">
+						<div class="info">
+							<div class="model"><i class="fa fa-home"></i><span>Mansion</span></div>
+						</div>
+						<div class="info">
+							<div class="type"><i class="fa fa-align-justify"></i><span>sale</span></div>
+						</div>
+						<div class="info">
+							<div class="price"><i class="fa fa-money"></i><span class="price-num">$&nbsp;4,235,400</span></div>
+						</div>
+						<div class="info">
+							<div class="acr"><i class="fa fa-arrows-alt"></i><span>65,156 sq</span></div>
+						</div>
+					</div>
+					<div class="col-md-12 title">Фото объекта</div>
+					<div class="row gallery">
+						<div class="col-md-12 gallery-item">
+							<div class="gallery-slider">
+								{% for image in project.get_all_images %}
+									<div class="slider-item"><img src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" alt=""/></div>	
+								{% endfor %}
+							</div>
+							<div class="slider-nav">
+								<div class="slider-nav-wrapper">
+									{% for image in project.get_all_images %}
+										<div class="slider-nav-item"><img src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" alt=""/></div>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12 title">Условия</div>
+					<ul id="condition" class="list-unstyled list-inline condition">
+						<li class="condition-item">
+							<div class="info"><i class="icon-bed"></i><span>комнат: {{ project.badrooms }}</span></div>
+						</li>
+						<li class="condition-item">
+							<div class="info"><i class="icon-bath"></i><span>сан. узлов: {{ project.bathrooms }}</span></div>
+						</li>
+						<li class="condition-item">
+							<div class="info"><i class="fa fa-arrows-alt"></i><span>{{ project.square }} м²</span></div>
+						</li>
+						<li class="condition-item">
+							<div class="info"><i class="fa fa-map-marker icon"></i><span>{{ project.address }}</span></div>
+						</li>
+						<li class="clearfix"></li>
+					</ul>
+					<div class="col-md-12 title">Удобства</div>
+					<ul class="list-unstyled list-inline amenities">
+						{% for amenity in project.amenities.all %}
+							<li class="amenities-item"><i class="fa fa-check-square"></i><span>{{ amenity.name }}</span></li>
+						{% endfor %}
+					</ul>
+					<div class="col-md-12 title">Описание</div>
+					<div id="description" class="row description">
+						<div class="col-md-12 des-text">
+							{{ project.text|safe }}
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 sidebar margin-top-2">
+					<div class="contact-agent-widget">
+						<div class="title">Менеджер проекта</div>
+						<div class="media contact-agent-content">
+							<div class="media-left media-middle"><img src="assets/images/avatars/avatar-7.jpg" alt="" class="agent-image"/></div>
+							<div class="media-body media-middle">
+								<div class="media-heading agent-name">miles hatfield</div>
+								<span class="agent-pos">expert agent</span></div>
+						</div>
+						<div class="agent-info">
+							<div class="contact-info">
+								<div class="info">
+									<div class="phone"><i class="fa fa-mobile"></i><span>904-621-5632</span></div>
+								</div>
+								<div class="info">
+									<div class="email"><i class="fa fa-envelope-o"></i><span>miles@sunhouse.com</span></div>
+								</div>
+								<div class="info">
+									<div class="skype"><i class="fa fa-skype"></i><span>miles.sunhouse</span></div>
+								</div>
+							</div>
+							<div class="social-info"><a href="property-detail.html#" class="link"><i class="fa fa-facebook"></i></a><a href="property-detail.html#" class="link"><i class="fa fa-twitter"></i></a><a href="property-detail.html#" class="link"><i class="fa fa-google-plus"></i></a><a href="property-detail.html#" class="link"><i class="fa fa-linkedin"></i></a></div>
+						</div>
+					</div>
+					<div class="feature-widget widget">
+						<div class="title-widget">featured properties</div>
+						<div class="content-widget">
+							<div class="media feature-item"><a href="property-detail.html#" class="media-left feature-img"><img src="assets/images/feature-1.jpg" alt=""/></a>
+
+								<div class="media-right media-middle feature-info"><a href="property-detail.html#" class="media-heading feature-title">Myths vealed</a>
+
+									<div class="info">
+										<div class="address"><i class="fa fa-map-marker"></i><span>568 E 1st Ave, New Jersey</span></div>
+									</div>
+									<div class="info">
+										<div class="price"><span>$&nbsp;2,965,300</span></div>
+									</div>
+								</div>
+							</div>
+							<div class="media feature-item"><a href="property-detail.html#" class="media-left feature-img"><img src="assets/images/feature-2.jpg" alt=""/></a>
+
+								<div class="media-right media-middle feature-info"><a href="property-detail.html#" class="media-heading feature-title">
+									Casa Bianca</a>
+
+									<div class="info">
+										<div class="address"><i class="fa fa-map-marker"></i><span>568 E 1st Ave, New Jersey</span></div>
+									</div>
+									<div class="info">
+										<div class="price"><span>$&nbsp;3,850</span><span class="price-of-rent">/month</span></div>
+									</div>
+								</div>
+							</div>
+							<div class="media feature-item"><a href="property-detail.html#" class="media-left feature-img"><img src="assets/images/feature-3.jpg" alt=""/></a>
+
+								<div class="media-right media-middle feature-info"><a href="property-detail.html#" class="media-heading feature-title">Tricklebrook</a>
+
+									<div class="info">
+										<div class="address"><i class="fa fa-map-marker"></i><span>568 E 1st Ave, New Jersey</span></div>
+									</div>
+									<div class="info">
+										<div class="price"><span>$&nbsp;6,500,000</span></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="banner-ads widget"><a href="property-detail.html#" class="link"><img src="assets/images/libs/Ads-2.jpg" alt=""/></a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="map2" class="section contact-map height-full-screen location"></div>
 {% endblock content %}
+
+
+{% block page_js %}
+	<script src="/static/assets/js/pages/property-detail.js"></script>
+{% endblock page_js %}
