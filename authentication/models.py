@@ -36,20 +36,20 @@ class AccountManager(BaseUserManager):
 
 
 class Account(AbstractBaseUser):
-    email = models.EmailField(unique=True)
-    username = models.CharField(max_length=40, unique=True)
+    email           = models.EmailField(unique=True)
+    username        = models.CharField(max_length=40, unique=True)
 
-    is_admin = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)
+    is_admin        = models.BooleanField(default=False)
+    is_active       = models.BooleanField(default=False)
+    is_staff        = models.BooleanField(default=False)
 
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    created_at      = models.DateTimeField(auto_now_add=True)
+    updated_at      = models.DateTimeField(auto_now=True)
 
-    objects = AccountManager()
-    backend = 'django.contrib.auth.backends.ModelBackend'
+    objects         = AccountManager()
+    backend         = 'django.contrib.auth.backends.ModelBackend'
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD  = 'email'
     REQUIRED_FIELDS = ['username']
 
     class Meta:
@@ -59,10 +59,10 @@ class Account(AbstractBaseUser):
     def __unicode__(self):
         return self.username
 
-    # def get_full_name(self):
-    #     return ' '.join([self.first_name, self.last_name])
-
     def get_short_name(self):
+        return self.email
+
+    def get_full_name(self):
         return self.email
 
     def has_perm(self, perm, obj=None):
@@ -82,10 +82,27 @@ class Account(AbstractBaseUser):
 
 
 class PerformerProfile(models.Model):
-    account = models.OneToOneField(Account, related_name='performer_of_account')
-    first_name = models.CharField(max_length=40, blank=True)
-    last_name = models.CharField(max_length=40, blank=True)
-    phone = models.CharField(max_length=40, blank=True)
+    account    = models.OneToOneField(Account,
+                    related_name='performer_of_account')
+    about      = models.CharField(max_length=200,
+                    verbose_name=u'Кратко о себе')
+    first_name = models.CharField(max_length=40,
+                    blank=True,
+                    verbose_name=u'Имя')
+    last_name  = models.CharField(max_length=40,
+                    blank=True,
+                    verbose_name=u'Фамилия')
+    phone      = models.CharField(max_length=40,
+                    blank=True)
+    vk         = models.CharField(max_length=200,
+                    blank=True,
+                    verbose_name=u'ссылка вконтакте')
+    skype      = models.CharField(max_length=200,
+                    blank=True,
+                    verbose_name=u'логин скайп')
+    od         = models.CharField(max_length=200,
+                    blank=True,
+                    verbose_name=u'ссылка одноклассники')
 
     class Meta:
         verbose_name = u"Профиль Исполнителя"
@@ -99,10 +116,10 @@ class PerformerProfile(models.Model):
 
 
 class CustomerProfile(models.Model):
-    account = models.OneToOneField(Account, related_name='customer_of_account')
+    account    = models.OneToOneField(Account, related_name='customer_of_account')
     first_name = models.CharField(max_length=40, blank=True)
-    last_name = models.CharField(max_length=40, blank=True)
-    phone = models.CharField(max_length=40, blank=True)
+    last_name  = models.CharField(max_length=40, blank=True)
+    phone      = models.CharField(max_length=40, blank=True)
 
     class Meta:
         verbose_name = u"Профиль Заказчика"

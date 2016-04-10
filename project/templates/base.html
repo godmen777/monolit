@@ -14,11 +14,11 @@
 	<link type="text/css" rel="stylesheet" href="/static/assets/font/font-icon/font-svg/style.css">
 	<!-- Library css-->
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/bootstrap-3.3.6/css/bootstrap.min.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/libs/datetimepicker/css/bootstrap-datetimepicker.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/animate/animate.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/owl-carousel-2.0/assets/owl.carousel.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/selectbox/css/jquery.selectbox.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/range-slider/jquery.nstSlider.min.css">
-	<link type="text/css" rel="stylesheet" href="/static/assets/libs/datetimepicker/css/bootstrap-datetimepicker.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/fancybox/css/jquery.fancybox.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/fancybox/css/jquery.fancybox-buttons.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/libs/slick/slick.css">
@@ -30,6 +30,7 @@
 	<link type="text/css" rel="stylesheet" href="/static/assets/css/authentication.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/css/components.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/css/responsive.css">
+	<link type="text/css" rel="stylesheet" href="/static/monolit/css/style.css">
 	<!-- LOADING SCRIPTS FOR PAGE--></head>
 <body><!-- HEADER-->
 <header>
@@ -111,9 +112,9 @@
 <script src="/static/assets/libs/jquery/jquery-2.1.4.min.js"></script>
 <script src="/static/assets/libs/detect/browser.js"></script>
 <script src="/static/assets/libs/moment/js/moment.min.js"></script>
-<script src="/static/assets/libs/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+<!--<script src="/static/assets/libs/bootstrap-3.3.6/js/bootstrap.min.js"></script>
 <script src="/static/assets/libs/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
-<script src="/static/assets/libs/smooth-scroll/jquery-smoothscroll.js"></script>
+<script src="/static/assets/libs/smooth-scroll/jquery-smoothscroll.js"></script>-->
 <script src="/static/assets/libs/owl-carousel-2.0/owl.carousel.min.js"></script>
 <script src="/static/assets/libs/fancybox/js/jquery.fancybox.js"></script>
 <script src="/static/assets/libs/fancybox/js/jquery.fancybox-buttons.js"></script>
@@ -125,9 +126,14 @@
 <script src="/static/assets/libs/range-slider/jquery.nstSlider.min.js"></script>
 <script src="/static/assets/libs/parallax/jquery.data-parallax.min.js"></script>
 <script src="/static/assets/libs/slick/slick.min.js"></script>
+
 <!-- MAIN JS-->
-<script src="/static/assets/js/main.js"></script>
+{% block page_js %}
+{% endblock page_js %}
 <!-- LOADING SCRIPTS FOR PAGE-->
+
+{% block meterial %}
+{% endblock meterial %}
 
 {% block modal_block %}
 {% endblock modal_block %}

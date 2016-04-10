@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
+    # 'graphql-core',
+    # 'graphql-relay',
+    'django_graphiql',
+    'graphene.contrib.django',
+    # 'graphene',
+
     'sitetree',
     'rest_framework',
     'authentication',
@@ -50,6 +58,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'image_cropping',
     'easy_thumbnails',
+
+    # 'graphene'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -67,13 +77,14 @@ ROOT_URLCONF = 'project.urls'
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'project/templates'),
         ],
-        # 'APP_DIRS': True,
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -81,11 +92,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader',
-                'django.template.loaders.eggs.Loader'
-            ]
+            # 'loaders': [
+            #     'django.template.loaders.filesystem.Loader',
+            #     'django.template.loaders.app_directories.Loader',
+            #     'django.template.loaders.eggs.Loader'
+            # ]
         },
     },
 ]
@@ -153,6 +164,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = "/home/django/monolit/project/media/"
 
+GRAPHENE_SCHEMA = 'core.schema'
 
 try:
     from project.settings_local import *

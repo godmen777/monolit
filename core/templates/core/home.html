@@ -6,7 +6,7 @@
 {% block banner_block %}
 	<div class="section">
 		<div class="banner-01 banner-full-screen-2"></div>
-	</div>							
+	</div>
 {% endblock banner_block %}
 
 
@@ -83,8 +83,8 @@
 						<div class="col-md-4 col-xs-6">
 							<div class="sunhouse-item">
 								<a href="{{ project.get_url }}" class="wrapper-image">
-									<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-1"/>
-									<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-2"/>
+									<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-1"/>
+									<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-2"/>
 								</a>
 								{% if project.for_sale %}
 									<div class="note for-rent"><p class="text">Продажа</p></div>
@@ -432,4 +432,8 @@
 	</div>
 {% endblock footer_block %}
 
+
+{% block page_js %}
+	<script src="/static/assets/js/main.js"></script>
+{% endblock page_js %}
 
