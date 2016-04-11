@@ -1478,6 +1478,14 @@ textarea.contact-form {
     transition: all 0.7s ease
 }
 
+.our-service-items .icon-wrapper .fa {
+    font-size: 60px;
+    color: #00C853;
+    position: relative;
+    z-index: 2;
+    transition: all 0.7s ease
+}
+
 .our-service-items h3.name {
     color: #34495e;
     font-size: 1.429em;
@@ -1520,7 +1528,8 @@ textarea.contact-form {
     transform: scale(1)
 }
 
-.our-service-items:hover .icon-wrapper .icon-our-service {
+.our-service-items:hover .icon-wrapper .icon-our-service,
+.our-service-items:hover .icon-wrapper .fa {
     color: #fff
 }
 

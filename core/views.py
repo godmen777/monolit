@@ -22,7 +22,7 @@ class ContactFormView(FormView):
 		context = super(ContactFormView, self).get_context_data(**kwargs)
 		context['project_list'] = Project.objects.all()
 		context['service_list'] = service_list = Service.objects.filter(is_home=True)
-		context['service_main'] = service_list.get(is_main=True)
+		context['service_main'] = Service.objects.get(is_main=True)
 		context['post_list'] = Post.objects.all()
 		context['review_list'] = Review.objects.all()
 		context['partner_list'] = Partner.objects.all()
