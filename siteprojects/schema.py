@@ -12,14 +12,10 @@ import graphene
 class CategoryNode(DjangoNode):
     class Meta:
         model = Category
-        filter_fields = ['name', 'projects']
-        filter_order_by = ['name']
 
 class ProjectsNode(DjangoNode):
     class Meta:
         model = Project
-        filter_fields = ['name',]
-        filter_order_by = ['name']
 
 
 class Query(ObjectType):

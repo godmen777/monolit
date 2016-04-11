@@ -21,8 +21,8 @@ class ContactFormView(FormView):
 	def get_context_data(self, **kwargs):
 		context = super(ContactFormView, self).get_context_data(**kwargs)
 		context['project_list'] = Project.objects.all()
-		context['service_list'] = service_list = Service.objects.all()
-		context['service_main'] = service_list.get(is_main=True)
+		context['service_list'] = service_list = Service.objects.filter(is_home=True)
+		context['service_main'] = Service.objects.get(is_main=True)
 		context['post_list'] = Post.objects.all()
 		context['review_list'] = Review.objects.all()
 		context['partner_list'] = Partner.objects.all()
@@ -33,6 +33,11 @@ class ContactFormView(FormView):
 	def form_valid(self, form):
 		form.send_email(self.request)
 		return super(ContactFormView, self).form_valid(form)
+
+
+def services(request, template_name="core/services.html"):
+	services = Service.objects.all()
+	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def service_item(request, slug, template_name="core/service_item.html"):
