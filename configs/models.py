@@ -9,6 +9,7 @@ class Config(models.Model):
     site_address = models.CharField(max_length=200, verbose_name=u"Адрес сайта")
     site_description = models.TextField(verbose_name=u"Описание сайта")
     site_logo = models.ImageField(upload_to="config")
+    site_logo2 = models.ImageField(upload_to="config")
     site_email = models.CharField(max_length=200, verbose_name=u"Почта администратора")
 
     class Meta:
@@ -23,6 +24,8 @@ class Config(models.Model):
 
     def get_logo_url(self):
         return "/media/%s" % self.site_logo.name
+    def get_logo2_url(self):
+        return "/media/%s" % self.site_logo2.name
 
     def __unicode__(self):
         return self.site_name

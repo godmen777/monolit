@@ -231,7 +231,8 @@
 }
 
 .sunhouse-title .icon-image img {
-    margin: 0 auto
+    margin: 0 auto;
+    width: 50px;
 }
 
 .sunhouse-title .main-title {
@@ -1215,7 +1216,7 @@ textarea.contact-form {
 .our-clients-said .our-clients-said-content .items .saying {
     padding: 20px 20px 30px 20px;
     margin: 0;
-    border: 1px solid #efefef
+    /*border: 1px solid #efefef*/
 }
 
 .our-clients-said .our-clients-said-content .items .info-client {
