@@ -30,5 +30,7 @@
 }
 
 img.logo {
-    height: 46px;
+    height: 73px;
+    position: absolute;
+    top: 11px;
 }

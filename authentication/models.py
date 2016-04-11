@@ -103,6 +103,9 @@ class PerformerProfile(models.Model):
     od         = models.CharField(max_length=200,
                     blank=True,
                     verbose_name=u'ссылка одноклассники')
+    avatar    = models.ImageField(upload_to="accounts",
+                    blank=True,
+                    verbose_name=u'аватар')
 
     class Meta:
         verbose_name = u"Профиль Исполнителя"
@@ -116,7 +119,8 @@ class PerformerProfile(models.Model):
 
 
 class CustomerProfile(models.Model):
-    account    = models.OneToOneField(Account, related_name='customer_of_account')
+    account    = models.OneToOneField(Account, 
+                                        related_name='customer_of_account')
     first_name = models.CharField(max_length=40, blank=True)
     last_name  = models.CharField(max_length=40, blank=True)
     phone      = models.CharField(max_length=40, blank=True)
