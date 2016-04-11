@@ -1,3 +1,7 @@
 .flatblock.block-home_about.pk-1 ul{
 	list-style-type: none;
+    padding-left: 0;
+}
+.flatblock.block-home_about.pk-1 ul i.fa.fa-check-square-o {
+    margin-right: 7px;
 }
