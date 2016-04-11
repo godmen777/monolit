@@ -59,6 +59,11 @@
 
 				<div class="about-house-content about-house-padding-left">
 					{% flatblock "home_about" using="flatblocks/text.html" %}
+				</div>
+				<div class="about-house-content-center">
+					{% flatblock "home_center" using="flatblocks/text.html" %}
+				</div>	
+
 			</div>
 		</div>
 	</div>
@@ -152,6 +157,9 @@
 						</div>
 						{% endfor %}
 
+					</div>
+					<div class="block-about-text">
+						{% flatblock "block_about" using="flatblocks/text.html" %}
 					</div>
 				</div>
 			</div>
