@@ -1486,11 +1486,13 @@ textarea.contact-form {
     transition: all 0.7s ease
 }
 
-.our-service-items .name {
+.our-service-items h3.name {
     color: #34495e;
     font-size: 1.429em;
     margin-bottom: 15px;
-    font-weight: 700
+    font-weight: 700;
+    text-transform: none;
+    
 }
 
 .our-service-items .text {
@@ -1794,7 +1796,7 @@ textarea.contact-form {
 .about-house-section .about-house-banner {
     position: absolute;
     width: 400px;
-    bottom: 40px
+    top: -40px;
 }
 
 .about-house-section .about-house-banner .about-house-banner-wrapper {
@@ -1875,7 +1877,6 @@ textarea.contact-form {
 }
 
 .about-house-section .about-house-content {
-    display: table-cell;
     vertical-align: top;
     padding-left: 70px
 }
