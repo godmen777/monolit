@@ -193,6 +193,9 @@
     text-align: center;
     margin-bottom: 60px
 }
+.service-item .sunhouse-title {
+    margin-top: 20px;
+}
 
 .sunhouse-title .icon-image {
     margin-bottom: 12px
@@ -231,7 +234,8 @@
 }
 
 .sunhouse-title .icon-image img {
-    margin: 0 auto
+    margin: 0 auto;
+    width: 50px;
 }
 
 .sunhouse-title .main-title {
@@ -1215,7 +1219,7 @@ textarea.contact-form {
 .our-clients-said .our-clients-said-content .items .saying {
     padding: 20px 20px 30px 20px;
     margin: 0;
-    border: 1px solid #efefef
+    /*border: 1px solid #efefef*/
 }
 
 .our-clients-said .our-clients-said-content .items .info-client {
@@ -1474,11 +1478,13 @@ textarea.contact-form {
     transition: all 0.7s ease
 }
 
-.our-service-items .name {
+.our-service-items h3.name {
     color: #34495e;
     font-size: 1.429em;
     margin-bottom: 15px;
-    font-weight: 700
+    font-weight: 700;
+    text-transform: none;
+    
 }
 
 .our-service-items .text {
@@ -1781,7 +1787,7 @@ textarea.contact-form {
 .about-house-section .about-house-banner {
     position: absolute;
     width: 400px;
-    bottom: 40px
+    top: -40px;
 }
 
 .about-house-section .about-house-banner .about-house-banner-wrapper {
@@ -1862,7 +1868,6 @@ textarea.contact-form {
 }
 
 .about-house-section .about-house-content {
-    display: table-cell;
     vertical-align: top;
     padding-left: 70px
 }
@@ -3430,7 +3435,7 @@ textarea.contact-form {
 .contact-agent-widget .media {
     margin-top: 0px;
     padding: 30px 0px;
-    border-bottom: 1px solid #6dc5fe
+    border-bottom: 1px solid #46FA91
 }
 
 .contact-agent-widget .media-left {
@@ -3498,14 +3503,14 @@ textarea.contact-form {
     margin-left: 20px;
     text-align: center;
     line-height: 33px;
-    border: 1px solid #6dc5fe;
+    border: 1px solid #46FA91;
     margin-bottom: 20px;
     transition: all 0.5s ease
 }
 
 .contact-agent-widget .social-info .link:hover {
-    border-color: #48b8ff;
-    background-color: #48b8ff
+    border-color: #46FA91;
+    background-color: #46FA91
 }
 
 .seller-info-widget .agent-property {
@@ -3764,7 +3769,7 @@ textarea.contact-form {
     margin-top: 40px;
     color: #77858e;
     line-height: 1;
-    margin-bottom: 120px
+    margin-bottom: 40px
 }
 
 .property-detail .detail-wrapper .detail-content .property-info .info {
@@ -3832,7 +3837,7 @@ textarea.contact-form {
 }
 
 .property-detail .detail-wrapper .detail-content .gallery, .property-detail .detail-wrapper .detail-content .amenities, .property-detail .detail-wrapper .detail-content .condition, .property-detail .detail-wrapper .detail-content .description {
-    margin-bottom: 85px
+    margin-bottom: 10px
 }
 
 .property-detail .detail-wrapper .detail-content .amenities {

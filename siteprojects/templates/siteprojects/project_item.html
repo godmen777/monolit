@@ -60,16 +60,10 @@
 				<div class="col-md-8 detail-content">
 					<div class="property-info">
 						<div class="info">
-							<div class="model"><i class="fa fa-home"></i><span>Mansion</span></div>
+							<div class="model"><i class="fa fa-home"></i><span>{{ project.category }}</span></div>
 						</div>
 						<div class="info">
-							<div class="type"><i class="fa fa-align-justify"></i><span>sale</span></div>
-						</div>
-						<div class="info">
-							<div class="price"><i class="fa fa-money"></i><span class="price-num">$&nbsp;4,235,400</span></div>
-						</div>
-						<div class="info">
-							<div class="acr"><i class="fa fa-arrows-alt"></i><span>65,156 sq</span></div>
+							<div class="acr"><i class="fa fa-arrows-alt"></i><span>{{ project.square }} м²</span></div>
 						</div>
 					</div>
 					<div class="col-md-12 title">Фото объекта</div>
@@ -122,69 +116,53 @@
 					<div class="contact-agent-widget">
 						<div class="title">Менеджер проекта</div>
 						<div class="media contact-agent-content">
-							<div class="media-left media-middle"><img src="assets/images/avatars/avatar-7.jpg" alt="" class="agent-image"/></div>
+							<div class="media-left media-middle">
+								<img src="/media/{{ performer_profile.avatar }}" 
+									alt="" 
+									width="100"
+									class="agent-image"/>
+							</div>
 							<div class="media-body media-middle">
-								<div class="media-heading agent-name">miles hatfield</div>
-								<span class="agent-pos">expert agent</span></div>
+								<div class="media-heading agent-name">{{performer_profile.get_full_name}}</div>
+								<span class="agent-pos">{{ performer_profile.about }}</span></div>
 						</div>
 						<div class="agent-info">
 							<div class="contact-info">
 								<div class="info">
-									<div class="phone"><i class="fa fa-mobile"></i><span>904-621-5632</span></div>
+									<div class="phone"><i class="fa fa-mobile"></i><span>{{ performer_profile.phone }}</span></div>
 								</div>
 								<div class="info">
-									<div class="email"><i class="fa fa-envelope-o"></i><span>miles@sunhouse.com</span></div>
+									<div class="email"><i class="fa fa-envelope-o"></i><span>{{ project.account.email }}</span></div>
 								</div>
 								<div class="info">
-									<div class="skype"><i class="fa fa-skype"></i><span>miles.sunhouse</span></div>
+									<div class="skype"><i class="fa fa-skype"></i><span>{{ performer_profile.skype }}</span></div>
 								</div>
 							</div>
-							<div class="social-info"><a href="property-detail.html#" class="link"><i class="fa fa-facebook"></i></a><a href="property-detail.html#" class="link"><i class="fa fa-twitter"></i></a><a href="property-detail.html#" class="link"><i class="fa fa-google-plus"></i></a><a href="property-detail.html#" class="link"><i class="fa fa-linkedin"></i></a></div>
+							<div class="social-info">
+								<a href="{{ performer_profile.vk }}" class="link"><i class="fa fa-vk"></i></a>
+								<a href="{{ performer_profile.od }}" class="link"><i class="fa fa-odnoklassniki"></i></a>
+							</div>
 						</div>
 					</div>
 					<div class="feature-widget widget">
-						<div class="title-widget">featured properties</div>
+						<div class="title-widget">Интересные проекты</div>
 						<div class="content-widget">
-							<div class="media feature-item"><a href="property-detail.html#" class="media-left feature-img"><img src="assets/images/feature-1.jpg" alt=""/></a>
-
-								<div class="media-right media-middle feature-info"><a href="property-detail.html#" class="media-heading feature-title">Myths vealed</a>
-
-									<div class="info">
-										<div class="address"><i class="fa fa-map-marker"></i><span>568 E 1st Ave, New Jersey</span></div>
+							{% for project in featured_projects %}
+								<div class="media feature-item">
+									<a href="{{ project.get_url }}" class="media-left feature-img">
+										<img src="{% cropped_thumbnail project.get_image "cropping_250x375" scale=1 %}" alt=""/>
+									</a>
+									<div class="media-right media-middle feature-info"><a href="{{ project.get_url }}" class="media-heading feature-title">{{ project.name }}</a>
+										<div class="info">
+											<div class="address"><i class="fa fa-map-marker"></i><span>{{ project.address }}</span></div>
+											<i class="fa fa-home"></i><span> {{ project.category }}</span>
+										</div>
 									</div>
-									<div class="info">
-										<div class="price"><span>$&nbsp;2,965,300</span></div>
-									</div>
-								</div>
-							</div>
-							<div class="media feature-item"><a href="property-detail.html#" class="media-left feature-img"><img src="assets/images/feature-2.jpg" alt=""/></a>
-
-								<div class="media-right media-middle feature-info"><a href="property-detail.html#" class="media-heading feature-title">
-									Casa Bianca</a>
-
-									<div class="info">
-										<div class="address"><i class="fa fa-map-marker"></i><span>568 E 1st Ave, New Jersey</span></div>
-									</div>
-									<div class="info">
-										<div class="price"><span>$&nbsp;3,850</span><span class="price-of-rent">/month</span></div>
-									</div>
-								</div>
-							</div>
-							<div class="media feature-item"><a href="property-detail.html#" class="media-left feature-img"><img src="assets/images/feature-3.jpg" alt=""/></a>
-
-								<div class="media-right media-middle feature-info"><a href="property-detail.html#" class="media-heading feature-title">Tricklebrook</a>
-
-									<div class="info">
-										<div class="address"><i class="fa fa-map-marker"></i><span>568 E 1st Ave, New Jersey</span></div>
-									</div>
-									<div class="info">
-										<div class="price"><span>$&nbsp;6,500,000</span></div>
-									</div>
-								</div>
-							</div>
+								</div>	
+							{% endfor %}
 						</div>
 					</div>
-					<div class="banner-ads widget"><a href="property-detail.html#" class="link"><img src="assets/images/libs/Ads-2.jpg" alt=""/></a></div>
+					<div class="banner-ads widget"><a href="#" class="link"><img src="/static/assets/images/libs/Ads-2.jpg" alt=""/></a></div>
 				</div>
 			</div>
 		</div>
