@@ -149,7 +149,7 @@
 						<div class="col-md-3">
 							<div data-wow-delay="0.2s" data-wow-duration="1s" class="our-service-items wow fadeInUp">
 								<div class="icon-wrapper">{{ service.icon|safe }}</div>
-								<p class="name">{{ service.name }}</p>
+								<h3 class="name">{{ service.name }}</h3>
 
 								<div class="text">{{ service.text|safe|truncatechars:100 }}</div>
 								<a href="{{ service.get_url }}" class="btn-readmore">Подробнее</a>
@@ -159,6 +159,13 @@
 
 					</div>
 					<div class="block-about-text">
+						<div class="sunhouse-title">
+							<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/></div>
+							<h2 class="main-title">О строительно	  компании "Монолит"</h2>
+							<p class="sub-title">Строительная компания Монолит — продажа и строительство частных домов под ключ в Новороссийске</p><br>
+							{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
+						</div>
+
 						{% flatblock "block_about" using="flatblocks/text.html" %}
 					</div>
 				</div>
