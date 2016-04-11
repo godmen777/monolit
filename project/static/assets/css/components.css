@@ -193,6 +193,9 @@
     text-align: center;
     margin-bottom: 60px
 }
+.service-item .sunhouse-title {
+    margin-top: 20px;
+}
 
 .sunhouse-title .icon-image {
     margin-bottom: 12px
@@ -3764,7 +3767,7 @@ textarea.contact-form {
     margin-top: 40px;
     color: #77858e;
     line-height: 1;
-    margin-bottom: 120px
+    margin-bottom: 40px
 }
 
 .property-detail .detail-wrapper .detail-content .property-info .info {
@@ -3832,7 +3835,7 @@ textarea.contact-form {
 }
 
 .property-detail .detail-wrapper .detail-content .gallery, .property-detail .detail-wrapper .detail-content .amenities, .property-detail .detail-wrapper .detail-content .condition, .property-detail .detail-wrapper .detail-content .description {
-    margin-bottom: 85px
+    margin-bottom: 10px
 }
 
 .property-detail .detail-wrapper .detail-content .amenities {

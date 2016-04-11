@@ -60,16 +60,10 @@
 				<div class="col-md-8 detail-content">
 					<div class="property-info">
 						<div class="info">
-							<div class="model"><i class="fa fa-home"></i><span>Mansion</span></div>
+							<div class="model"><i class="fa fa-home"></i><span>{{ project.category }}</span></div>
 						</div>
 						<div class="info">
-							<div class="type"><i class="fa fa-align-justify"></i><span>sale</span></div>
-						</div>
-						<div class="info">
-							<div class="price"><i class="fa fa-money"></i><span class="price-num">$&nbsp;4,235,400</span></div>
-						</div>
-						<div class="info">
-							<div class="acr"><i class="fa fa-arrows-alt"></i><span>65,156 sq</span></div>
+							<div class="acr"><i class="fa fa-arrows-alt"></i><span>{{ project.square }} м²</span></div>
 						</div>
 					</div>
 					<div class="col-md-12 title">Фото объекта</div>
@@ -168,7 +162,7 @@
 							{% endfor %}
 						</div>
 					</div>
-					<div class="banner-ads widget"><a href="property-detail.html#" class="link"><img src="/static/assets/images/libs/Ads-2.jpg" alt=""/></a></div>
+					<div class="banner-ads widget"><a href="#" class="link"><img src="/static/assets/images/libs/Ads-2.jpg" alt=""/></a></div>
 				</div>
 			</div>
 		</div>
