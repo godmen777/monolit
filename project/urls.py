@@ -13,24 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include, patterns
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf import settings
-# flatblocks edit
+from django.conf.urls.static import static
 from flatblocks.views import edit
 from django.contrib.auth.decorators import login_required
-# Accounts
-from authentication.models import Account
 # REST API
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers
 from restapi.views import *
-router = routers.DefaultRouter()
-router.register(r'accounts', AccountsViewSet)
 # GraphQL
 from django.views.decorators.csrf import csrf_exempt
 from graphene.contrib.django.views import GraphQLView
-
 from core.schema import schema
+
+
+router = routers.DefaultRouter()
+router.register(r'accounts', AccountsViewSet)
 
 
 urlpatterns = [
@@ -45,15 +44,5 @@ urlpatterns = [
     url(r'^', include('core.urls')),
     url(r'^', include('authentication.urls')),
     url(r'^', include('configs.urls')),
-    url(r'^', include('siteprojects.urls')),
-    # url(r'^graphql', csrf_exempt(GraphQLView.as_view(schema=schema))),
-]
-
-
-if settings.DEBUG:
-    urlpatterns += patterns('',
-    url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.STATIC_ROOT}),
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.MEDIA_ROOT}),
-        )
+    url(r'^', include('siteprojects.urls'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

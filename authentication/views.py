@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import render
-from django.contrib.auth import logout,login,authenticate
+from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-
 from authentication.forms import AccountForm, PerformerProfileForm, CustomerProfileForm
 from authentication.models import Account, PerformerProfile, CustomerProfile
 
@@ -12,6 +10,7 @@ from authentication.models import Account, PerformerProfile, CustomerProfile
 def logoutView(request):
     logout(request)
     return HttpResponseRedirect('/')
+
 
 def loginView(request,template_name="authentication/login.html"):
     if request.user.is_authenticated():
@@ -61,9 +60,7 @@ def populateProfileView(request, template_name="authentication/populate_profile.
         return HttpResponseRedirect('/login')
     else:
         f = PerformerProfileForm()
-
     if request.method == 'POST':
-        # performer_profile = PerformerProfile.objects
         if request.user.role == 'teacher':
             instance = PerformerProfile(account=request.user)
             f = PerformerProfileForm(request.POST, instance=instance)
