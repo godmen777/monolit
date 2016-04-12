@@ -72,7 +72,8 @@ class Page(models.Model):
 							help_text=u'Ссылка формируется автоматически при заполнении.')
 
 	icon = models.CharField(max_length=200, 
-							verbose_name=u"Иконка для страницы")
+							verbose_name=u"Иконка для страницы",
+							blank=True)
 
 	text = RichTextUploadingField()
 
