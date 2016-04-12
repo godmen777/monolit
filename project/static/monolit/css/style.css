@@ -14,7 +14,25 @@
     float: left;
     margin-top: 50px;
 }
-.block-about-text .sunhouse-title {
-    text-align: center;
+.about-house-content-center{
+	margin-top: 50px;
+}
+.block-about-text .sunhouse-title,.about-house-content-center .sunhouse-title {
     margin-bottom: 0px;
+}
+.contact-pages .fa {
+    font-size: 20px;
+    color: #008F49;
+    margin-right: 7px;
+}
+
+.maps {
+    margin: 50px 0;
+}
+.sunhouse-title.content-pages {
+    margin-top: 60px;
+}
+ .content-pages .icon-image img {
+    margin: 0 auto;
+    width: auto;
 }
