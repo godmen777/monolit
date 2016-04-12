@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
+# !/usr/bin/env python
 
-from django.conf.urls import patterns, include, url
-# from configs.views import SubscribeView
+from django.conf.urls import url
+from configs.views import subscribe_view
 
-urlpatterns = patterns('configs.views',
-	url(r"^subscribe$", 'subscribe_view', name="subscribe")
-)
+urlpatterns = [
+    url(r"^subscribe$", subscribe_view, name="subscribe"),
+]
