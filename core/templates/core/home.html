@@ -47,7 +47,7 @@
 			<div class="about-house-wrapper">
 
 				<div class="about-house-banner">
-					<div class="about-house-banner-wrapper"><a href="index.html#" class="title">Специальное предложение</a><a href="index.html#" class="address">Дом на побережье моря в экологически чистой зоне</a>
+					<div class="about-house-banner-wrapper"><a href="index.html#" class="title">Специальное предложение</a><a href="#" class="address">Дом на побережье моря в экологически чистой зоне</a>
 
 						<div class="price-for-house">
 							<div class="price"><sup><i class="fa fa-rub"></i></sup><span class="amount">11</span><span class="small amount">,999 / м²</span></div>
@@ -59,6 +59,16 @@
 
 				<div class="about-house-content about-house-padding-left">
 					{% flatblock "home_about" using="flatblocks/text.html" %}
+				</div>
+				<div class="about-house-content-center">
+					<div class="sunhouse-title">
+						<h2 class="main-title">Строительсто домов без предоплаты</h2>
+						<p class="sub-title">Строительная компания Монолит — продажа и строительство частных домов под ключ в Новороссийске</p><br>
+						{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
+					</div>
+					{% flatblock "home_center" using="flatblocks/text.html" %}
+				</div>	
+
 			</div>
 		</div>
 	</div>
@@ -72,7 +82,7 @@
 		<div class="container">
 			<div class="newest-properties-wrapper">
 				<div class="sunhouse-title">
-					<div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
+					<div class="icon-image"><img src="/static/assets/images/favicon_black3_min2.png" alt="" class="img-responsive"/><!--.icon-title--><!--    i.icon-church--></div>
 					<h2 class="main-title">Выберите дом Вашей мечты</h2>
 
 					<p class="sub-title">Мы охотим сделать поиск Вашего любимого дома как можно проще!</p></div>
@@ -83,8 +93,8 @@
 						<div class="col-md-4 col-xs-6">
 							<div class="sunhouse-item">
 								<a href="{{ project.get_url }}" class="wrapper-image">
-									<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-1"/>
-									<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_720x400" scale=1 %}" alt="" class="img-responsive layout-2"/>
+									<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-1"/>
+									<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-2"/>
 								</a>
 								{% if project.for_sale %}
 									<div class="note for-rent"><p class="text">Продажа</p></div>
@@ -132,8 +142,8 @@
 		<div class="container">
 			<div class="our-service-wrapper">
 				<div class="sunhouse-title">
-					<div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--   i.icon-mail_box--></div>
-					<h2 class="main-title">Наш труд - Ваша выгода</h2>
+					<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/><!--.icon-title--><!--   i.icon-mail_box--></div>
+					<h2 class="main-title">Наши услуги</h2>
 
 					<p class="sub-title">Ваше время и деньги будут сэкономлены, благодаря опыту и качеству нашей работы</p>
 				</div>
@@ -144,7 +154,7 @@
 						<div class="col-md-3">
 							<div data-wow-delay="0.2s" data-wow-duration="1s" class="our-service-items wow fadeInUp">
 								<div class="icon-wrapper">{{ service.icon|safe }}</div>
-								<p class="name">{{ service.name }}</p>
+								<h3 class="name">{{ service.name }}</h3>
 
 								<div class="text">{{ service.text|safe|truncatechars:100 }}</div>
 								<a href="{{ service.get_url }}" class="btn-readmore">Подробнее</a>
@@ -152,6 +162,16 @@
 						</div>
 						{% endfor %}
 
+					</div>
+					<div class="block-about-text">
+						<div class="sunhouse-title">
+							<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/></div>
+							<h2 class="main-title">О строительно	  компании "Монолит"</h2>
+							<p class="sub-title">Строительная компания Монолит — продажа и строительство частных домов под ключ в Новороссийске</p><br>
+							{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
+						</div>
+
+						{% flatblock "block_about" using="flatblocks/text.html" %}
 					</div>
 				</div>
 			</div>
@@ -184,7 +204,7 @@
 		<div class="container">
 			<div class="our-agents-wrapper">
 				<div class="sunhouse-title">
-					<div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/></div>
+					<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/></div>
 					<h2 class="main-title">Полезное о строительстве</h2>
 					<p class="sub-title">Всякое о строительстве, ремонте, продаже и покупке своего дома</p><br>
 					{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
@@ -293,7 +313,7 @@
 		<div class="container">
 			<div class="our-clients-said-wrapper">
 				<div class="sunhouse-title">
-					<div class="icon-image"><img src="/static/assets/images/logo-title-1.png" alt="" class="img-responsive"/><!--.icon-title--><!--   i.icon-warehouse--></div>
+					<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/><!--.icon-title--><!--   i.icon-warehouse--></div>
 					<h2 class="main-title">Отзывы наших клиентов</h2>
 
 					<p class="sub-title">Спасибо за Ваши отзывы они помогают нам чувствовать себя полезными</p></div>
@@ -344,92 +364,8 @@
 {% endblock contact_form %}
 
 
-{% block footer_block %}
-	<div class="footer-main">
-		<div class="container">
-			<div class="footer-main-wrapper padding-top-2 padding-bottom row">
-				<div class="col-md-6 col-2">
-					<div class="row">
-						<div class="col-sm-6 col-xs-6">
-							<div class="sunhouse-widget widget">
-								<div class=""><img width="250" src="{{ config.get_logo_url }}" alt=""/></div>
-								{# <div class="footer-logo footer-logo-black"><img src="/static/assets/images/logo-1.png" alt=""/></div> #}
-								<div class="content-widget">
-									<p class="text">{{ config.site_description|safe|truncatechars:200 }}</p>
-									{% for phone in config.get_all_phones %}
-										<div class="phone-number"><i class="fa fa-phone"></i><span>{{ phone }}</span></div>
-									{% endfor %}
-									<div class="socials"><a href="index.html#" class="link facebook"><i class="fa fa-facebook-square"></i></a><a href="index.html#" class="link twitter"><i class="fa fa-twitter"></i></a><a href="index.html#" class="link pinterest"><i class="fa fa-pinterest"></i></a><a href="index.html#" class="link blog"><i class="fa fa-rss"></i></a><a href="index.html#" class="link instagram"><i class="fa fa-instagram"></i></a><a href="index.html#" class="link dribbble"><i class="fa fa-dribbble"></i></a></div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-							<div class="widget">
-								<div class="useful-link-widget">
-									<div class="title-widget">Полезные ссылки</div>
-									<div class="content-widget">
-										<div class="row">
-											<div class="col-xs-12">
-												<ul class="list-unstyled">
-													{% for page in page_list %}
-														<li><a href="{{ page.get_url }}">{{ page.name }}</a></li>
-													{% endfor %}
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-6 col-2">
-					<div class="row">
-						<div class="col-sm-6 col-xs-6">
-							<div class="widget">
-								<div class="form-blog-widget">
-									<div class="title-widget">Последние статьи</div>
-									<div class="content-widget">
 
-										{% for post in post_list|slice:":3" %}
-										<div class="media">
-											<div class="media-left"><a href="index.html#" class="img-hover">
-												<img src="/static/assets/images/gallery/gallery-04.jpg" alt=""/></a>
-											</div>
-											<div class="media-right">
-												<a href="index.html#" class="title">{{ post.name }}</a>
-												<div class="info">
-													<div class="date-created item"><a href="index.html#" class="text">{{ post.updated_at }}</a></div>
-												</div>
-											</div>
-										</div>
-										{% endfor %}
-
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6 col-xs-6">
-							<div class="widget">
-								<div class="gallery-widget">
-									<div class="title-widget">Последние объекты</div>
-									<div class="content-widget">
-										<div class="gallery-list">
-											{% for project in project_list %}
-												<a href="{{ project.get_url }}" class="thumb img-hover">
-													<img src="{{ project.get_all_images.0.get_url }}" alt="" class="img-responsive"/>
-												</a>
-											{% endfor %}
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-{% endblock footer_block %}
-
+{% block page_js %}
+	<script src="/static/assets/js/main.js"></script>
+{% endblock page_js %}
 

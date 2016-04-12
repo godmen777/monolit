@@ -1,4 +1,5 @@
-from django.shortcuts import render, render_to_response
+# -*- coding: utf-8 -*-
+from django.shortcuts import redirect, render_to_response
 from django.template import RequestContext
 from configs.forms import ContactForm
 from django.views.generic.edit import FormView
@@ -11,47 +12,65 @@ from configs.methods import get_site_config
 # 	form = ContactForm()
 # 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
+
 class ContactFormView(FormView):
-	template_name = "core/home.html"
-	form_class = ContactForm
-	success_url = "/success"
+    template_name = "core/home.html"
+    form_class = ContactForm
+    success_url = "/success"
 
-	def get_context_data(self, **kwargs):
-		context = super(ContactFormView, self).get_context_data(**kwargs)
-		context['project_list'] = Project.objects.all()
-		context['service_list'] = service_list = Service.objects.all()
-		context['service_main'] = service_list.get(is_main=True)
-		context['post_list'] = Post.objects.all()
-		context['review_list'] = Review.objects.all()
-		context['partner_list'] = Partner.objects.all()
-		context['page_list'] = Page.objects.all()
-		context['config'] = get_site_config(self.request)
-		return context
+    def get_context_data(self, **kwargs):
+        context = super(ContactFormView, self).get_context_data(**kwargs)
+        context['project_list'] = Project.objects.all()
+        context['service_list'] = service_list = Service.objects.filter(is_home=True)
+        context['service_main'] = Service.objects.get(is_main=True)
+        context['post_list'] = Post.objects.all()
+        context['review_list'] = Review.objects.all()
+        context['partner_list'] = Partner.objects.all()
+        context['page_list'] = Page.objects.all()
+        context['config'] = get_site_config(self.request)
+        return context
 
-	def form_valid(self, form):
-		form.send_email(self.request)
-		return super(ContactFormView, self).form_valid(form)
+    def form_valid(self, form):
+        form.send_email(self.request)
+        return super(ContactFormView, self).form_valid(form)
+
+
+def services(request, template_name="core/services.html"):
+    services = Service.objects.all()
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def service_item(request, slug, template_name="core/service_item.html"):
-	service = Service.objects.get(slug=slug)
-	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+    print "request::::: %s" % request.GET
+    service = Service.objects.get(slug=slug)
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def page_item(request, slug, template_name="core/page_item.html"):
-	page = Page.objects.get(slug=slug)
-	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+    page = Page.objects.get(slug=slug)
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_item(request, slug, template_name="core/post_item.html"):
-	post = Post.objects.get(slug=slug)
-	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+    post = Post.objects.get(slug=slug)
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_list(request, template_name="core/post_list.html"):
-	posts = Post.objects.all()
-	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+    posts = Post.objects.all()
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def success(request, template_name="configs/success.html"):
-	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+    return render_to_response(template_name, locals(), context_instance=RequestContext(request))
+
+
+# redirect from old urls
+def redirect(request, template_name="404.html"):
+    # если кто-то хочет зайти на статью по старому url
+    print request.path
+    if request.path == u'/разрешение-на-строительство/':
+        return redirect('/pages/razreshenie-na-stroitelstvo/')
+
+    # return redirect('/404')
+    # return render_to_response(template_name, locals(),context_instance=RequestContext(request))

@@ -732,7 +732,7 @@ header .bg-transparent .dropdown-language li:hover a {
 }
 
 .header-main .navigation .nav-links .main-menu {
-    line-height: 50px;
+    line-height: 65px;
     padding: 0;
     margin: 0 20px;
     text-transform: uppercase;
@@ -951,7 +951,7 @@ footer .bg-dark .hyperlink {
 
 footer .bg-dark .title-widget {
     color: #fff;
-    border-color: #373f43
+    border-color: #fff
 }
 
 footer .bg-dark .info a {

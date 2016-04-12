@@ -7,4 +7,6 @@ from siteprojects.models import Project, ProjectImage
 
 def project_item(request, slug, template_name="siteprojects/project_item.html"):
 	project = Project.objects.get(slug=slug)
+	performer_profile = project.account.performer_of_account
+	featured_projects = Project.objects.filter(featured=True)
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))

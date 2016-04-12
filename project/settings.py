@@ -26,7 +26,7 @@ SECRET_KEY = 'monolitmhevt!73w)z)co07y8s&awfpo0y)^2=-&zo-qxqbdj9h$fw+9t'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+SITE_ID = 2
 
 # Application definition
 
@@ -39,6 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.redirects',
+
+    # 'graphql-core',
+    # 'graphql-relay',
+    'django_graphiql',
+    'graphene.contrib.django',
+    # 'graphene',
+
     'sitetree',
     'rest_framework',
     'authentication',
@@ -51,6 +59,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'image_cropping',
     'easy_thumbnails',
+
+    # 'graphene'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -62,6 +72,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -153,8 +164,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = "/home/django/monolit/project/media/"
+MEDIA_ROOT = BASE_DIR + "/project/media/"
 
+GRAPHENE_SCHEMA = 'core.schema'
 
 try:
     from project.settings_local import *
