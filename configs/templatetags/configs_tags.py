@@ -21,7 +21,6 @@ def base_menu(context, request):
     try:
         config = Config.objects.get(site__domain=request.get_host())
     except Exception:
-        print(u'Конфигурация сайта не создана.')
         config = Config.objects.get(site__domain="example.com")
 
     return {
