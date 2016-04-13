@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit), name='flatblocks-edit'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^robots\.txt$', include('robots.urls')),
     url(r'^', include('core.urls')),
     url(r'^', include('authentication.urls')),
     url(r'^', include('configs.urls')),

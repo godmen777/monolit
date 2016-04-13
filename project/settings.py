@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'image_cropping',
     'easy_thumbnails',
+    'robots',
 
     # 'graphene'
 ]
@@ -101,6 +102,10 @@ TEMPLATES = [
             # ]
         },
     },
+]
+
+ROBOTS_SITEMAP_URLS = [
+    'http://monolit-stroy.net/sitemap.xml',
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
