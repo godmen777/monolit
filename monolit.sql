@@ -29,14 +29,14 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `authentication_account` (
   `id` int(11) NOT NULL,
   `password` varchar(128) NOT NULL,
-  `last_login` datetime(6) DEFAULT NULL,
+  `last_login` datetime DEFAULT NULL,
   `email` varchar(254) NOT NULL,
   `username` varchar(40) NOT NULL,
   `is_admin` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `is_staff` tinyint(1) NOT NULL,
-  `created_at` datetime(6) NOT NULL,
-  `updated_at` datetime(6) NOT NULL
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
@@ -313,8 +313,8 @@ CREATE TABLE IF NOT EXISTS `core_page` (
   `text` longtext NOT NULL,
   `meta_keywords` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `updated_at` datetime(6) DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 --
@@ -369,8 +369,8 @@ CREATE TABLE IF NOT EXISTS `core_post` (
   `text` longtext NOT NULL,
   `meta_keywords` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `updated_at` datetime(6) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
@@ -395,8 +395,8 @@ CREATE TABLE IF NOT EXISTS `core_review` (
   `position` varchar(50) NOT NULL,
   `photo` varchar(100) DEFAULT NULL,
   `text` longtext NOT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `updated_at` datetime(6) DEFAULT NULL
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
@@ -421,8 +421,8 @@ CREATE TABLE IF NOT EXISTS `core_service` (
   `text` longtext NOT NULL,
   `meta_keywords` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `updated_at` datetime(6) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `icon` varchar(200) NOT NULL,
   `is_home` tinyint(1) NOT NULL,
   `is_main` tinyint(1) NOT NULL,
@@ -455,7 +455,7 @@ INSERT INTO `core_service` (`id`, `name`, `slug`, `text`, `meta_keywords`, `meta
 
 CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `id` int(11) NOT NULL,
-  `action_time` datetime(6) NOT NULL,
+  `action_time` datetime NOT NULL,
   `object_id` longtext,
   `object_repr` varchar(200) NOT NULL,
   `action_flag` smallint(5) unsigned NOT NULL,
@@ -741,7 +741,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `id` int(11) NOT NULL,
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `applied` datetime(6) NOT NULL
+  `applied` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8;
 
 --
@@ -853,7 +853,7 @@ INSERT INTO `django_redirect` (`id`, `site_id`, `old_path`, `new_path`) VALUES
 CREATE TABLE IF NOT EXISTS `django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
-  `expire_date` datetime(6) NOT NULL
+  `expire_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -902,7 +902,7 @@ CREATE TABLE IF NOT EXISTS `easy_thumbnails_source` (
   `id` int(11) NOT NULL,
   `storage_hash` varchar(40) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `modified` datetime(6) NOT NULL
+  `modified` datetime NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
@@ -928,7 +928,7 @@ CREATE TABLE IF NOT EXISTS `easy_thumbnails_thumbnail` (
   `id` int(11) NOT NULL,
   `storage_hash` varchar(40) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `modified` datetime(6) NOT NULL,
+  `modified` datetime NOT NULL,
   `source_id` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
@@ -1058,8 +1058,8 @@ CREATE TABLE IF NOT EXISTS `siteprojects_category` (
   `text` longtext NOT NULL,
   `meta_keywords` varchar(255) NOT NULL,
   `meta_description` varchar(255) NOT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `updated_at` datetime(6) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `lft` int(10) unsigned NOT NULL,
   `rght` int(10) unsigned NOT NULL,
   `tree_id` int(10) unsigned NOT NULL,
@@ -1092,8 +1092,8 @@ CREATE TABLE IF NOT EXISTS `siteprojects_project` (
   `name` varchar(100) NOT NULL,
   `text` longtext NOT NULL,
   `sku` int(11) DEFAULT NULL,
-  `created_at` datetime(6) DEFAULT NULL,
-  `updated_at` datetime(6) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   `category_id` int(11) NOT NULL,
   `badrooms` int(11) NOT NULL,
   `bathrooms` int(11) NOT NULL,
