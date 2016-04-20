@@ -99,7 +99,7 @@ class Page(models.Model):
         return self.name
 
     def get_url(self):
-        return "/posts/%s" % self.slug
+        return "/pages/%s" % self.slug
 
 
 class Post(models.Model):
