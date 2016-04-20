@@ -28,6 +28,10 @@ class Service(models.Model):
     is_main = models.BooleanField(default=False,
                                   verbose_name=u"Вывод в блок 'Новая услуга'")
 
+    meta_title = models.CharField(verbose_name=u'Мета title',
+                        max_length=80,
+                        blank=True)
+
     meta_keywords = models.CharField(verbose_name=u'Мета ключевые слова',
                                      max_length=255,
                                      blank=True)
@@ -60,36 +64,32 @@ class Service(models.Model):
 
 
 class Page(models.Model):
-    name = models.CharField(u'Заголовок',
-                            max_length=50,
-                            unique=False)
-
-    slug = models.SlugField(verbose_name=u'Ссылка на страницу',
-                            max_length=50,
-                            unique=True,
-                            help_text=u'Ссылка формируется автоматически при заполнении.')
-
-    icon = models.CharField(max_length=200,
-                            verbose_name=u"Иконка для страницы")
-
-    text = RichTextUploadingField()
-
-    meta_keywords = models.CharField(verbose_name=u'Мета ключевые слова',
-                                     max_length=255,
-                                     blank=True)
-
+    name             = models.CharField(u'Заголовок',
+                        max_length=50,
+                        unique=False)
+    slug             = models.SlugField(verbose_name=u'Ссылка на страницу',
+                        max_length=50,
+                        unique=True,
+                        help_text=u'Ссылка формируется автоматически при заполнении.')
+    icon             = models.CharField(max_length=200,
+                        verbose_name=u"Иконка для страницы")
+    text             = RichTextUploadingField()
+    meta_title       = models.CharField(verbose_name=u'Мета title',
+                        max_length=80,
+                        blank=True)
+    meta_keywords    = models.CharField(verbose_name=u'Мета ключевые слова',
+                        max_length=255,
+                        blank=True)
     meta_description = models.CharField(verbose_name=u'Мета описание',
-                                        max_length=255,
-                                        help_text=u'Нужно для СЕО',
-                                        blank=True)
-
-    created_at = models.DateTimeField(verbose_name=u'Создана',
-                                      null=True,
-                                      auto_now_add=True)
-
-    updated_at = models.DateTimeField(verbose_name=u'Обновлена',
-                                      null=True,
-                                      auto_now=True)
+                        max_length=255,
+                        help_text=u'Нужно для СЕО',
+                        blank=True)
+    created_at       = models.DateTimeField(verbose_name=u'Создана',
+                        null=True,
+                        auto_now_add=True)
+    updated_at       = models.DateTimeField(verbose_name=u'Обновлена',
+                        null=True,
+                        auto_now=True)
 
     class Meta:
         verbose_name = u"Страница"
@@ -119,6 +119,10 @@ class Post(models.Model):
     image = models.ImageField(upload_to="services")
 
     text = RichTextUploadingField()
+
+    meta_title = models.CharField(verbose_name=u'Мета title',
+                        max_length=80,
+                        blank=True)
 
     meta_keywords = models.CharField(verbose_name=u'Мета ключевые слова',
                                      max_length=255,

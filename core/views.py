@@ -28,6 +28,10 @@ class ContactFormView(FormView):
         context['partner_list'] = Partner.objects.all()
         context['page_list'] = Page.objects.all()
         context['config'] = get_site_config(self.request)
+
+        config = get_site_config(self.request)
+        context['title'] = config.site_name
+        context['description'] = config.site_description
         return context
 
     def form_valid(self, form):
@@ -37,27 +41,54 @@ class ContactFormView(FormView):
 
 def services(request, template_name="core/services.html"):
     services = Service.objects.all()
+
+    title = u"Услуги"
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def service_item(request, slug, template_name="core/service_item.html"):
     print "request::::: %s" % request.GET
     service = Service.objects.get(slug=slug)
+
+    title = ""
+    if service.meta_title:
+        title = service.meta_title
+    else: 
+        title = service.name
+    description = service.meta_description
+
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def page_item(request, slug, template_name="core/page_item.html"):
     page = Page.objects.get(slug=slug)
+
+    title = ""
+    if page.meta_title:
+        title = page.meta_title
+    else: 
+        title = page.name
+    description = page.meta_description
+    
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_item(request, slug, template_name="core/post_item.html"):
     post = Post.objects.get(slug=slug)
+
+    title = ""
+    if post.meta_title:
+        title = post.meta_title
+    else: 
+        title = post.name
+    description = post.meta_description
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_list(request, template_name="core/post_list.html"):
     posts = Post.objects.all()
+
+    title = u"Статьи"
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
