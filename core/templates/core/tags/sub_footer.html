@@ -50,9 +50,9 @@
 											<img src="/static/assets/images/gallery/gallery-04.jpg" alt=""/></a>
 										</div>
 										<div class="media-right">
-											<a href="index.html#" class="title">{{ post.name }}</a>
+											<a href="{{ post.get_url }}" class="title">{{ post.name }}</a>
 											<div class="info">
-												<div class="date-created item"><a href="index.html#" class="text">{{ post.updated_at }}</a></div>
+												<div class="date-created item"><a href="{{ post.get_url }}" class="text">{{ post.updated_at }}</a></div>
 											</div>
 										</div>
 									</div>

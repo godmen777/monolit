@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'image_cropping',
     'easy_thumbnails',
+    'robots',
 
     # 'graphene'
 ]
@@ -101,6 +102,10 @@ TEMPLATES = [
             # ]
         },
     },
+]
+
+ROBOTS_SITEMAP_URLS = [
+    'http://monolit-stroy.net/sitemap.xml',
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
@@ -149,13 +154,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
 LANGUAGE_CODE = 'ru-RU'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 

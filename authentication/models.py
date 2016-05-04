@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from django.db import models
-from django import forms
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import BaseUserManager
 
@@ -9,7 +8,6 @@ class AccountManager(BaseUserManager):
     def create_user(self, email, password=None, **kwargs):
         if not email:
             raise ValueError('Users must have a valid email address.')
-
 
         if not kwargs.get('username'):
             raise ValueError('Users must have a valid username.')
@@ -20,6 +18,11 @@ class AccountManager(BaseUserManager):
         )
 
         account.set_password(password)
+        account.is_active = True
+        account.is_staff = True
+        account.save()
+
+        return account
         account.save()
 
         return account
@@ -28,29 +31,24 @@ class AccountManager(BaseUserManager):
         account = self.create_user(email, password, **kwargs)
 
         account.is_admin = True
-        account.is_active = True
-        account.is_staff = True
-        account.save()
-
-        return account
 
 
 class Account(AbstractBaseUser):
-    email           = models.EmailField(unique=True)
-    username        = models.CharField(max_length=40, unique=True)
+    email              = models.EmailField(unique=True)
+    username           = models.CharField(max_length=40, unique=True)
 
-    is_admin        = models.BooleanField(default=False)
-    is_active       = models.BooleanField(default=False)
-    is_staff        = models.BooleanField(default=False)
+    is_admin           = models.BooleanField(default=False)
+    is_active          = models.BooleanField(default=False)
+    is_staff           = models.BooleanField(default=False)
 
-    created_at      = models.DateTimeField(auto_now_add=True)
-    updated_at      = models.DateTimeField(auto_now=True)
+    created_at         = models.DateTimeField(auto_now_add=True)
+    updated_at         = models.DateTimeField(auto_now=True)
 
-    objects         = AccountManager()
-    backend         = 'django.contrib.auth.backends.ModelBackend'
+    objects            = AccountManager()
+    backend            = 'django.contrib.auth.backends.ModelBackend'
 
-    USERNAME_FIELD  = 'email'
-    REQUIRED_FIELDS = ['username']
+    USERNAME_FIELD     = 'email'
+    REQUIRED_FIELDS    = ['username']
 
     class Meta:
         verbose_name = u"Аккаунт"
@@ -82,28 +80,28 @@ class Account(AbstractBaseUser):
 
 
 class PerformerProfile(models.Model):
-    account    = models.OneToOneField(Account,
+    account = models.OneToOneField(Account,
                     related_name='performer_of_account')
-    about      = models.CharField(max_length=200,
+    about = models.CharField(max_length=200,
                     verbose_name=u'Кратко о себе')
     first_name = models.CharField(max_length=40,
                     blank=True,
                     verbose_name=u'Имя')
-    last_name  = models.CharField(max_length=40,
+    last_name = models.CharField(max_length=40,
                     blank=True,
                     verbose_name=u'Фамилия')
-    phone      = models.CharField(max_length=40,
+    phone = models.CharField(max_length=40,
                     blank=True)
-    vk         = models.CharField(max_length=200,
+    vk = models.CharField(max_length=200,
                     blank=True,
                     verbose_name=u'ссылка вконтакте')
-    skype      = models.CharField(max_length=200,
+    skype = models.CharField(max_length=200,
                     blank=True,
                     verbose_name=u'логин скайп')
-    od         = models.CharField(max_length=200,
+    od = models.CharField(max_length=200,
                     blank=True,
                     verbose_name=u'ссылка одноклассники')
-    avatar    = models.ImageField(upload_to="accounts",
+    avatar = models.ImageField(upload_to="accounts",
                     blank=True,
                     verbose_name=u'аватар')
 
