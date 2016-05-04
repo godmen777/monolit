@@ -20,7 +20,7 @@ class ContactFormView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(ContactFormView, self).get_context_data(**kwargs)
-        context['project_list'] = Project.objects.all()
+        context['project_list'] = Project.objects.all()[:3]
         context['service_list'] = service_list = Service.objects.filter(is_home=True)
         context['service_main'] = Service.objects.get(is_main=True)
         context['post_list'] = Post.objects.all()
@@ -28,6 +28,10 @@ class ContactFormView(FormView):
         context['partner_list'] = Partner.objects.all()
         context['page_list'] = Page.objects.all()
         context['config'] = get_site_config(self.request)
+
+        config = get_site_config(self.request)
+        context['title'] = config.site_name
+        context['description'] = config.site_description
         return context
 
     def form_valid(self, form):
@@ -37,27 +41,64 @@ class ContactFormView(FormView):
 
 def services(request, template_name="core/services.html"):
     services = Service.objects.all()
+    posts = Post.objects.all()[:5]
+    title = u"Услуги"
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def service_item(request, slug, template_name="core/service_item.html"):
     print "request::::: %s" % request.GET
+
     service = Service.objects.get(slug=slug)
+    children = service.get_children()
+    if service.template:
+        template_name = service.template.template
+
+    print "tree_id: %s" % service.tree_id
+    rel_services = list(Service.objects.filter(tree_id=service.tree_id))
+    rel_services.remove(service)
+
+    recent_posts = Post.objects.filter(service=service)
+
+    title = ""
+    if service.meta_title:
+        title = service.meta_title
+    else: 
+        title = service.name
+    description = service.meta_description
+
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def page_item(request, slug, template_name="core/page_item.html"):
     page = Page.objects.get(slug=slug)
+
+    title = ""
+    if page.meta_title:
+        title = page.meta_title
+    else: 
+        title = page.name
+    description = page.meta_description
+    
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_item(request, slug, template_name="core/post_item.html"):
     post = Post.objects.get(slug=slug)
+
+    title = ""
+    if post.meta_title:
+        title = post.meta_title
+    else: 
+        title = post.name
+    description = post.meta_description
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def post_list(request, template_name="core/post_list.html"):
     posts = Post.objects.all()
+
+    title = u"Статьи"
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 

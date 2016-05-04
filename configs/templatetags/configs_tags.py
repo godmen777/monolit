@@ -12,8 +12,6 @@ def top_menu(context, request):
         'config': config,
         'request': request,
     }
-
-
 register.inclusion_tag('configs/tags/top_menu.html', takes_context=True)(top_menu)
 
 
@@ -28,6 +26,13 @@ def base_menu(context, request):
         'user': request.user,
         'request': request,
     }
-
-
 register.inclusion_tag('configs/tags/base_menu.html', takes_context=True)(base_menu)
+
+
+def contact_widget(context, request):
+    config = get_site_config(request)
+    return {
+        'config': config,
+        'request': request,
+    }
+register.inclusion_tag('configs/tags/contact_widget.html', takes_context=True)(contact_widget)

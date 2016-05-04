@@ -67,23 +67,26 @@ class Project(models.Model):
 					blank=True)
 	name       = models.CharField(max_length=100,
 					verbose_name=u'Название проекта')
-	address    = models.CharField(max_length=100,
-					verbose_name=u'Адрес')
+	dimensions_home    = models.CharField(max_length=100,
+					verbose_name=u'Габариты дома')
 	slug       = models.SlugField(verbose_name=u'Ссылка на проект',
 					max_length=50, 
 					unique=True, 
 					help_text=u'Ссылка формируется автоматически при заполнении.')
+	square     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Высота в коньке')
+	roof_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Площадь крыши')
+	combined_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Общая площадь')
+	building_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Площадь застройки')
+	kubatura     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Кубатура')
+	ugol_inclination     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Угол наклона крыши')
+	# badrooms   = models.IntegerField(verbose_name=u'Колличество спален')
+	# bathrooms  = models.IntegerField(verbose_name=u'Колличество ванных комнат')
 	text       = RichTextField()
-	sku        = models.IntegerField(verbose_name=u'Артикул',
-					null=True, 
-					blank=True)
+	material   = RichTextField()
 	for_sale   = models.BooleanField(default=False,
 					verbose_name=u"на продажу")
 	featured   = models.BooleanField(default=False,
 					verbose_name=u"В интересное")
-	square     = models.IntegerField(verbose_name=u'Площадь дома')
-	badrooms   = models.IntegerField(verbose_name=u'Колличество спален')
-	bathrooms  = models.IntegerField(verbose_name=u'Колличество ванных комнат')
 	created_at = models.DateTimeField(u'Created at',
 					null=True, 
 					auto_now_add=True)
@@ -112,6 +115,7 @@ class ProjectImage(models.Model):
 						upload_to='projects/', 
 						help_text=u'Изображение', 
 						blank=True)
+	is_plan 				 = models.BooleanField(default=False, verbose_name=u'План')
 	cropping         = ImageRatioField('image',
 						'500x320', 
 						verbose_name=u'Обрезка для проекта 500x320')
@@ -137,3 +141,6 @@ class ProjectImage(models.Model):
 			return "/media/%s" % self.cropping_250x375
 		else:
 			return '/static/images/none_image.png'
+
+
+

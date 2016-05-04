@@ -2825,7 +2825,7 @@ textarea.contact-form {
 }
 
 .page-title.property-view {
-    background-image: url("../images/libs/property-view-2.jpg")
+    background-image: url("../images/banner-2.jpg")
 }
 
 .page-title.property-view.bg-overlay:before {
@@ -2835,6 +2835,9 @@ textarea.contact-form {
 .page-title.property-detail {
     background-image: url("../images/libs/property-detail.jpg")
 }
+/*.page-title.service-detail {
+    background-image: url("../../monolit/images/slider.jpg")
+}*/
 
 .page-title.property-detail.bg-overlay:before {
     background-color: rgba(52, 73, 94, 0.4)
