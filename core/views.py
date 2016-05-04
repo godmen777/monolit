@@ -41,14 +41,24 @@ class ContactFormView(FormView):
 
 def services(request, template_name="core/services.html"):
     services = Service.objects.all()
-
+    posts = Post.objects.all()[:5]
     title = u"Услуги"
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
 
 
 def service_item(request, slug, template_name="core/service_item.html"):
     print "request::::: %s" % request.GET
+
     service = Service.objects.get(slug=slug)
+    children = service.get_children()
+    if service.template:
+        template_name = service.template.template
+
+    print "tree_id: %s" % service.tree_id
+    rel_services = list(Service.objects.filter(tree_id=service.tree_id))
+    rel_services.remove(service)
+
+    recent_posts = Post.objects.filter(service=service)
 
     title = ""
     if service.meta_title:

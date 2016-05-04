@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load core_tags %}
+{% load flatblocks %}
+{% load cropping %}
+
+
+{% block banner_block %}
+	<div 
+		class="section background-opacity page-title service-detail bg-overlay"
+		style="background-image: url('/media/{{ service.bg_image }}')">
+		<div class="container">
+			<div class="page-title-wrapper">
+				<h2 class="captions">{{ service.name }}</h2>
+				<ol class="breadcrumb">
+					<li><a href="index.html">{{ service.slogan }}</a></li>
+				</ol>
+			</div>
+		</div>
+	</div>
+{% endblock banner_block %}
+
+
+{% block content %}
+<div class="section service-content">
+	<div class="container margin-top">
+
+		{% for serv in children %}
+			{% if forloop.counter|divisibleby:2 %}
+				<div class="media service-graph">
+					<div class="media-left padding-top pl30">
+						<div class="underline media-heading">{{ serv.name }}</div>
+						<div class="des">
+							<p class="text">{{ serv.preview_text|safe }}</p>
+							<a href="{{ serv.get_url }}" class="btn btn-blue">подробнее</a>
+						</div>
+					</div>
+					<div class="media-right pl100 media-image"><img src="{% cropped_thumbnail serv 'image_set_crop' scale=1 %}" alt=""/></div>
+				</div>
+			{% else %}
+				<div class="media service-graph">
+					<div class="media-left pr100 media-image"><img src="{% cropped_thumbnail serv 'image_set_crop' scale=1 %}" alt=""/></div>
+					<div class="media-right padding-top-2 pr25">
+						<div class="underline media-heading">{{ serv.name }}</div>
+						<div class="des">
+							<p class="text">{{ serv.preview_text|safe }}</p>
+							<a href="{{ serv.get_url }}" class="btn btn-blue">подробнее</a>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		{% endfor %}
+		
+	</div>
+</div>
+{% endblock content %}
