@@ -74,6 +74,7 @@ class Project(models.Model):
 					unique=True, 
 					help_text=u'Ссылка формируется автоматически при заполнении.')
 	text       = RichTextField()
+	material   = RichTextField()
 	sku        = models.IntegerField(verbose_name=u'Артикул',
 					null=True, 
 					blank=True)
