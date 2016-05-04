@@ -15,10 +15,15 @@ class Service(models.Model):
                             unique=True,
                             help_text=u'Ссылка формируется автоматически при заполнении.')
 
+    slogan = models.CharField(u'Слоган',
+                            max_length=200,
+                            unique=False)
+
     icon = models.CharField(max_length=200,
                             verbose_name=u"Иконка для услуги")
 
     image = models.ImageField(upload_to="services")
+    bg_image = models.ImageField(upload_to="services", verbose_name=u'Фоновое изображение')
 
     text = RichTextUploadingField()
 

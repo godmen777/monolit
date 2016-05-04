@@ -112,6 +112,7 @@ class ProjectImage(models.Model):
 						upload_to='projects/', 
 						help_text=u'Изображение', 
 						blank=True)
+	is_plan 				 = models.BooleanField(default=False, verbose_name=u'План')
 	cropping         = ImageRatioField('image',
 						'500x320', 
 						verbose_name=u'Обрезка для проекта 500x320')
@@ -137,3 +138,6 @@ class ProjectImage(models.Model):
 			return "/media/%s" % self.cropping_250x375
 		else:
 			return '/static/images/none_image.png'
+
+
+

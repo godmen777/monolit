@@ -2835,6 +2835,9 @@ textarea.contact-form {
 .page-title.property-detail {
     background-image: url("../images/libs/property-detail.jpg")
 }
+/*.page-title.service-detail {
+    background-image: url("../../monolit/images/slider.jpg")
+}*/
 
 .page-title.property-detail.bg-overlay:before {
     background-color: rgba(52, 73, 94, 0.4)
