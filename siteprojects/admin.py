@@ -18,11 +18,13 @@ class ProjectImageInline(ImageCroppingMixin, admin.StackedInline):
 
 class ProjectAdmin(admin.ModelAdmin):
     model = Project
-    # fieldsets = [
-    #     (u'Основная информация', {'fields':['name','slug','body']}),
-        # (u'Специальная информация', {
-        #     'fields': ['special_image','special_body']}),
-    # ]
+    fieldsets = [
+        (u'Параметры проекта', {'fields':['account','category','name','slug','amenities']}),
+        (u'Основная информация', {'fields':['combined_area','kubatura','building_area','square','ugol_inclination',
+            'roof_area','dimensions_home']}),
+        (u'Описание', {'fields': ['text']}),
+        (u'Материал', {'fields': ['material']}),
+    ]
     prepopulated_fields = {'slug': ('name', ), }
     filter_horizontal = ('amenities',)
     inlines = [ProjectImageInline, ]
