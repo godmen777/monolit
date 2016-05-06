@@ -81,8 +81,11 @@
 											{{ project.material|safe }}
 										</div>
 										<div id="panel4" class="tab-pane fade">
-											<h3>Панель 4</h3>
-											<p>Содержимое 4 панели...</p>
+											<form action="." method="post">{% csrf_token %}
+												<div class="forma-project">{{ form }}</div>
+												<br>
+												<button type="submit" class="btn btn-blue">Отправить</button>
+											</form>
 										</div>
 									</div>
 								</div>
