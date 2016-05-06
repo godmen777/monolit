@@ -43,12 +43,13 @@
 .list-services__item:nth-child(6) {
 	background-image: url('../media/list-services/550x200/6.jpg');
 }
-.list-services__item .icon {
+.list-services__item .icon,
+.list-services__item .fa {
 	float: left;
 	width: 80px;
 	height: 80px;
 	margin-top: 5px;
-	padding-top: 25px;
+	padding-top: 20px;
 	font-size: 37px;
 	border: 2px solid #fff;
 	border-radius: 50%;
