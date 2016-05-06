@@ -55,7 +55,7 @@
 												</div>
 											</div>
 											<div class="about-house"><a href="search-properties.html" class="title">{{ project.name }}</a>
-												<div class="text">{{ project.text|safe|truncatechars:200 }}</div>
+												<div class="text">{{ project.text|truncatechars:200|striptags|safe }}</div>
 											</div>
 											<div class="more-info-house">
 												{# <div class="place-house"><i class="fa fa-map-marker"></i><a href="index.html#">{{ project.address }}</a></div> #}

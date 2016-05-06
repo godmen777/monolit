@@ -5,6 +5,12 @@
 {% load cropping %}
 
 
+{% block page_css %}
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/flaticon.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/services.css">
+{% endblock page_css %}
+
+
 {% block content %}
 <div class="section background-opacity page-title blog bg-overlay">
 	<div class="container">
@@ -16,61 +22,29 @@
 		</div>
 	</div>
 </div>
+
+
 <div class="section blog">
 	<div class="container">
 		<div class="blog-wrapper row">
-			<div class="col-md-8 blog-content padding-top padding-bottom">
+			<div class="col-md-12 blog-content padding-top padding-bottom">
 
-				{% for service in services %}
-					<div class="sunhouse-item">
-						<div class="wrapper-image">
-							<img 
-								src="{% cropped_thumbnail service 'image_list_crop' scale=1 %}" 
-								alt="" 
-								class="img-responsive"
-								style="height: auto;"/>
-						</div>
-						<div class="note for-sale for-day"><a href="{{ service.get_url }}" class="text">{{ service.created_at|date:"d F" }}</a></div>
-						<div class="wrapper-content">
-							<div class="info-house">
-								<div class="info"><i class="fa fa-user"></i><span class="info-inner">Монолит</span></div>
-								<div class="info"><i class="fa fa-file-o"></i><span class="info-inner">{{ service.name }}</span></div>
-							</div>
-							<div class="about-house"><a href="{{ service.get_url }}" class="title">{{ service.name }}</a>
-								{{ service.preview_text|safe }}
-								<a href="{{ service.get_url }}" class="btn btn-blue">подробнее</a>
-							</div>
-						</div>
-					</div>
-				{% endfor %}
-
-				<ul class="pagination">
-					<li class="pagi-item disable"><a href="blog.html#" class="link-pagination">Previous</a></li>
-					<li class="active pagi-item"><a href="blog.html#" class="link-pagination">1</a></li>
-					<li class="pagi-item"><a href="blog.html#" class="link-pagination">2</a></li>
-					<li class="pagi-item"><a href="blog.html#" class="link-pagination">...</a></li>
-					<li class="pagi-item"><a href="blog.html#" class="link-pagination">9</a></li>
-					<li class="pagi-item"><a href="blog.html#" class="link-pagination">10</a></li>
-					<li class="pagi-item"><a href="blog.html#" class="link-pagination">Next</a></li>
-				</ul>
-			</div>
-			<div class="col-md-4 sidebar margin-top">
-				{% contact_widget request %}
-				<div class="feature-widget widget">
-					<div class="title-widget">Статьи</div>
-					<div class="content-widget">
-
-						{% for post in posts %}
-							<div class="media feature-item">
-								<div class="media-left feature-img"><img src="/media/{{ post.image }}" alt=""/></div>
-								<div class="media-right media-middle feature-info"><a href="{{ post.get_url }}" class="media-heading feature-title">{{ post.name }}</a>
-									<div class="info"><a href="blog-detail.html#" class="category">Категория: <span> Real Estate</span></a></div>
+				<ul class="list-services list-unstyled">
+					{% for service in services %}
+						<li 
+							class="list-services__item"
+							style="background-image: url({% cropped_thumbnail service 'image_list_crop' scale=1 %});">
+							<a class="list-services__link clearfix" href="{{ service.get_url }}">
+								<i class="icon flaticon-flash31"></i>
+								<div class="list-services__inner">
+									<h3 class="list-services__title">{{ service.name }}</h3>
+									<div class="list-services__description">{{ service.preview_text|truncatechars:140|safe }}</div>
 								</div>
-							</div>
-						{% endfor %}
+							</a>
+						</li>
+					{% endfor %}
+				</ul>
 
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
