@@ -87,7 +87,6 @@ class Project(models.Model):
 	roof_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Площадь крыши')
 	combined_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Общая площадь')
 	building_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Площадь застройки')
-	kubatura     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Кубатура')
 	ugol_inclination     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Угол наклона крыши')
 	# badrooms   = models.IntegerField(verbose_name=u'Колличество спален')
 	# bathrooms  = models.IntegerField(verbose_name=u'Колличество ванных комнат')

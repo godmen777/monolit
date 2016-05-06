@@ -42,6 +42,7 @@ class ContactFormView(FormView):
 def services(request, template_name="core/services.html"):
     services = []
     servicesQS = Service.objects.filter(published=True)
+    # servicesQS = Service.objects.all()
     for serv in servicesQS:
         if not serv.parent:
             # добавляем только проедков
