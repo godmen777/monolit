@@ -19,38 +19,7 @@
 
 
 {% block search_block %}
-	<div class="section nav-bar">
-		<div class="nav-bar-wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8">
-						<ul class="detail-nav list-unstyled">
-							<li class="nav-item on-top-btn active">
-								<figure><i class="icon-house_1 icon"></i>
-									<figcaption>В начало</figcaption>
-								</figure>
-							</li>
-							<li class="nav-item condition-btn">
-								<figure><i class="fa fa-map-marker icon"></i>
-									<figcaption>Условия</figcaption>
-								</figure>
-							</li>
-							<li class="nav-item description-btn">
-								<figure><i class="fa fa-comment-o icon"></i>
-									<figcaption>Удобства</figcaption>
-								</figure>
-							</li>
-							<li class="nav-item location-btn">
-								<figure><i class="fa fa-file-text-o icon"></i>
-									<figcaption>Описание</figcaption>
-								</figure>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 {% endblock search_block %}
 
 {% block content %}
@@ -58,57 +27,71 @@
 		<div class="container">
 			<div class="detail-wrapper row">
 				<div class="col-md-8 detail-content">
-					<div class="property-info">
-						<div class="info">
-							<div class="model"><i class="fa fa-home"></i><span>{{ project.category }}</span></div>
-						</div>
-						<div class="info">
-							<div class="acr"><i class="fa fa-arrows-alt"></i><span>{{ project.square }} м²</span></div>
-						</div>
-					</div>
-					<div class="col-md-12 title">Фото объекта</div>
 					<div class="row gallery">
 						<div class="col-md-12 gallery-item">
 							<div class="gallery-slider">
-								{% for image in project.get_all_images %}
+								{% for image in project.get_images_without_plan %}
 									<div class="slider-item"><img src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" alt=""/></div>	
 								{% endfor %}
 							</div>
 							<div class="slider-nav">
 								<div class="slider-nav-wrapper">
-									{% for image in project.get_all_images %}
+									{% for image in project.get_images_without_plan %}
 										<div class="slider-nav-item"><img src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" alt=""/></div>
 									{% endfor %}
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-12 title">Условия</div>
-					<ul id="condition" class="list-unstyled list-inline condition">
-						<li class="condition-item">
-							<div class="info"><i class="icon-bed"></i><span>комнат: {{ project.badrooms }}</span></div>
-						</li>
-						<li class="condition-item">
-							<div class="info"><i class="icon-bath"></i><span>сан. узлов: {{ project.bathrooms }}</span></div>
-						</li>
-						<li class="condition-item">
-							<div class="info"><i class="fa fa-arrows-alt"></i><span>{{ project.square }} м²</span></div>
-						</li>
-						<li class="condition-item">
-							<div class="info"><i class="fa fa-map-marker icon"></i><span>{{ project.address }}</span></div>
-						</li>
-						<li class="clearfix"></li>
-					</ul>
-					<div class="col-md-12 title">Удобства</div>
-					<ul class="list-unstyled list-inline amenities">
-						{% for amenity in project.amenities.all %}
-							<li class="amenities-item"><i class="fa fa-check-square"></i><span>{{ amenity.name }}</span></li>
-						{% endfor %}
-					</ul>
-					<div class="col-md-12 title">Описание</div>
+					<div class="section nav-bar">
+							<div class="nav-bar-wrapper">
+								<div class="col-md-12">
+									<ul id="myTab" class="detail-nav list-unstyled nav nav-tabs">
+										<li class="nav-item on-top-btn active">
+											<figure>
+												<a href="#panel1"><i class="fa fa-file-text-o icon"></i>Описание</a>
+											</figure>
+										</li>
+										<li class="nav-item condition-btn">
+											<figure>
+												<a href="#panel2"><i class="fa fa-object-group icon"></i>Планы</a>
+											</figure>
+										</li>
+										<li class="nav-item description-btn">
+											<figure>
+												<a href="#panel3"><i class="fa fa-home icon"></i>Материал</a>
+											</figure>
+										</li>
+										<li class="nav-item location-btn">
+											<figure>
+												<a href="#panel4"><i class="fa fa-envelope-o icon"></i>Оставить заявку</a>
+											</figure>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<div id="panel1" class="tab-pane fade in active">
+											{{ project.text|safe }}
+										</div>
+										<div id="panel2" class="tab-pane fade">
+											{% for image in project.get_images_with_plan %}
+												<div class="slider-item"><img src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" alt=""/></div>	
+											{% endfor %}
+										</div>
+										<div id="panel3" class="tab-pane fade">
+											{{ project.material|safe }}
+										</div>
+										<div id="panel4" class="tab-pane fade">
+											<h3>Панель 4</h3>
+											<p>Содержимое 4 панели...</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					 
 					<div id="description" class="row description">
 						<div class="col-md-12 des-text">
-							{{ project.text|safe }}
+							
 						</div>
 					</div>
 				</div>
@@ -145,22 +128,37 @@
 						</div>
 					</div>
 					<div class="main_information">
+					<div class="garage_comnata">
 						<ul>
-							{% if project.building_area %}
-								<li><div class="info">Площадь застройки:<span>{{ project.building_area }}</span></div></li>
-							{% endif %}
-							{% if project.kubatura %}
-								<li><div class="info">Кубатура:<span>{{ project.kubatura }}</span></div></li>
-							{% endif %}
-							{% if project.square %}
-								<li><div class="info">Высота в коньке:<span>{{ project.square }}</span></div></li>
-							{% endif %}
-							{% if project.ugol_inclination %}
-							<li><div class="info">Угол наклона крыши:<span>{{ project.ugol_inclination }}</span></div></li>	
-							{% endif %}
-							<li><div class="info">Площадь крыши:<span>{{ project.roof_area }}</span></div></li>
-							<li><div class="info">Габариты дома:<span>{{ project.dimensions_home }}</span></div></li>
+							<li>
+								<div class="info"><i class="fa fa-home"></i><span> {{ project.category }}</span></div>
+							</li>
+							<li>
+								<div class="info"><i class="fa fa-car"></i><span> {{ project.garage.name }}</span></div>
+							</li>
 						</ul>
+					</div>
+					<div class="combined_area">
+						<div class="info">Общая площадь:<span>{{ project.combined_area }}</span><span class="metr">м²</span></div>
+					</div>
+						<div class="atriburs">
+							<ul>
+								{% if project.building_area %}
+									<li><div class="info">Площадь застройки:<span>{{ project.building_area }}</span><span class="metr">м²</span></div></li>
+								{% endif %}
+								{% if project.kubatura %}
+									<li><div class="info">Кубатура:<span>{{ project.kubatura }}</span><span class="metr">м³</span></div></li>
+								{% endif %}
+								{% if project.square %}
+									<li><div class="info">Высота в коньке:<span>{{ project.square }}</span><span class="metr">м</span></div></li>
+								{% endif %}
+								{% if project.ugol_inclination %}
+								<li><div class="info">Угол наклона крыши:<span>{{ project.ugol_inclination }}</span><span class="metr">°</span></div></li>	
+								{% endif %}
+								<li><div class="info">Площадь крыши:<span>{{ project.roof_area }}</span><span class="metr">м²</span></div></li>
+								<li><div class="info">Габариты дома:<span>{{ project.dimensions_home }}</span><span class="metr">м</span></div></li>
+							</ul>
+						</div>
 					</div>
 					<div class="feature-widget widget">
 						<div class="title-widget">Интересные проекты</div>
@@ -173,7 +171,7 @@
 									<div class="media-right media-middle feature-info"><a href="{{ project.get_url }}" class="media-heading feature-title">{{ project.name }}</a>
 										<div class="info">
 											<div class="address"><i class="fa fa-map-marker"></i><span>{{ project.address }}</span></div>
-											<i class="fa fa-home"></i><span> {{ project.category }}</span>
+											
 										</div>
 									</div>
 								</div>	
@@ -189,40 +187,7 @@
 
 <div>
 
-  <!-- Nav tabs -->
-<ul id="myTab" class="nav nav-tabs">
-  <li class="active"><a href="#panel1">Панель 1</a></li>
-  <li><a href="#panel2">Панель 2</a></li>
-  <li class="dropdown">
-    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-      Другие панели 
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a href="#panel3">Панель 3</a></li>
-      <li><a href="#panel4">Панель 4</a></li>
-    </ul>
-  </li>
-</ul>
- 
-<div class="tab-content">
-  <div id="panel1" class="tab-pane fade in active">
-    <h3>Панель 1</h3>
-    <p>Содержимое 1 панели...</p>
-  </div>
-  <div id="panel2" class="tab-pane fade">
-    <h3>Панель 2</h3>
-    <p>Содержимое 2 панели...</p>
-  </div>
-  <div id="panel3" class="tab-pane fade">
-    <h3>Панель 3</h3>
-    <p>Содержимое 3 панели...</p>
-  </div>
-  <div id="panel4" class="tab-pane fade">
-    <h3>Панель 4</h3>
-    <p>Содержимое 4 панели...</p>
-  </div>
-</div>
+  
 {% endblock content %}
 
 

@@ -3712,7 +3712,9 @@ textarea.contact-form {
 .nav-bar .nav-bar-wrapper {
     padding: 0
 }
-
+.main_information {
+    margin-top: 30px;
+}
 .nav-bar .detail-nav {
     margin-bottom: 0;
     line-height: 0;
@@ -3720,23 +3722,69 @@ textarea.contact-form {
     float: left;
     width: 100%
 }
-
+.atriburs .info{
+    font-weight: bold;
+}
+ul#myTab i.icon {
+    margin-right: 10px;
+}
+ul#myTab a{
+    padding: 25px 14px 16px;
+    color: #C0CDDB;
+}
+ul#myTab a:hover,ul#myTab a.active{
+    color: #C0CDDB;
+}
+.tab-content {
+    margin-top: 32px;
+    float: left;
+}
+.combined_area span{
+    margin-left: 7px;
+    font-weight: normal;
+}
+.section.property-detail {
+    margin-top: 60px;
+}
+.combined_area {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00C853;
+    overflow: hidden;
+    float: left;
+}
+.atriburs .info span{
+    font-weight: normal;
+    margin-left: 7px;
+}
+span.metr {
+    margin-left: 0px!important;
+}
+.main_information ul{
+    padding-left: 0;
+    list-style-type: none;
+}
+.garage_comnata li {
+    float: left;
+    margin-right: 10px;
+}
 .nav-bar .detail-nav .nav-item {
     pointer-events: auto;
     float: left;
     transition: all 0.6s ease;
     cursor: pointer;
-    height: 110px;
-    width: 170px;
+    width: 180px;
+    padding: 16px 0px;
     font-weight: 700;
     color: #c0cddb;
     text-align: center;
     display: inline-block;
-    padding-top: 20px;
-    padding-bottom: 25px;
     border-left: 1px solid #edeeee
 }
-
+.tab-content .table-responsive {
+    float: left;
+}
 .nav-bar .detail-nav .nav-item .icon {
     transition: color 0.6s ease
 }
