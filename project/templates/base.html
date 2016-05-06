@@ -35,8 +35,10 @@
 	<link type="text/css" rel="stylesheet" href="/static/assets/css/authentication.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/css/components.css">
 	<link type="text/css" rel="stylesheet" href="/static/assets/css/responsive.css">
-	<link type="text/css" rel="stylesheet" href="/static/monolit/css/style.css">
+	<link type="text/css" rel="stylesheet" href="/static/assets/css/style.css">
 	<!-- LOADING SCRIPTS FOR PAGE--></head>
+	{% block page_css %}
+	{% endblock page_css %}
 <body><!-- HEADER-->
 <header>
 	<div class="bg-transparent">
@@ -132,6 +134,7 @@
 <script src="/static/assets/libs/range-slider/jquery.nstSlider.min.js"></script>
 <script src="/static/assets/libs/parallax/jquery.data-parallax.min.js"></script>
 <script src="/static/assets/libs/slick/slick.min.js"></script>
+<script src="/static/assets/libs/bootstrap-3.3.6/js/bootstrap.min.js"></script>
 
 <!-- MAIN JS-->
 {% block page_js %}

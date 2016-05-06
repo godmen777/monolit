@@ -26,7 +26,7 @@ SECRET_KEY = 'monolitmhevt!73w)z)co07y8s&awfpo0y)^2=-&zo-qxqbdj9h$fw+9t'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-SITE_ID = 2
+# SITE_ID = 2
 
 # Application definition
 
@@ -60,9 +60,20 @@ INSTALLED_APPS = [
     'image_cropping',
     'easy_thumbnails',
     'robots',
+    'mptt',
+    # 'mptt-tree'
 
     # 'graphene'
 ]
+
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
+    'django_mobile.loader.Loader',
+)
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

@@ -20,7 +20,7 @@ class ContactFormView(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(ContactFormView, self).get_context_data(**kwargs)
-        context['project_list'] = Project.objects.all()
+        context['project_list'] = Project.objects.all()[:3]
         context['service_list'] = service_list = Service.objects.filter(is_home=True)
         context['service_main'] = Service.objects.get(is_main=True)
         context['post_list'] = Post.objects.all()
@@ -40,7 +40,13 @@ class ContactFormView(FormView):
 
 
 def services(request, template_name="core/services.html"):
-    services = Service.objects.all()
+    services = []
+    servicesQS = Service.objects.filter(published=True)
+    for serv in servicesQS:
+        if not serv.parent:
+            # добавляем только проедков
+            services.append(serv)
+
     posts = Post.objects.all()[:5]
     title = u"Услуги"
     return render_to_response(template_name, locals(), context_instance=RequestContext(request))
@@ -50,6 +56,7 @@ def service_item(request, slug, template_name="core/service_item.html"):
     print "request::::: %s" % request.GET
 
     service = Service.objects.get(slug=slug)
+    # ancestors = service.get_root()
     children = service.get_children()
     if service.template:
         template_name = service.template.template
