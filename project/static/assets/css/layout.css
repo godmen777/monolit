@@ -1107,3 +1107,6 @@ footer .bg-transparent .socials a:hover i {
 .sidebar-right {
     float: right
 }
+.center {
+    text-align: center;
+}

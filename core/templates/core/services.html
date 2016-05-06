@@ -35,7 +35,7 @@
 							class="list-services__item"
 							style="background-image: url({% cropped_thumbnail service 'image_list_crop' scale=1 %});">
 							<a class="list-services__link clearfix" href="{{ service.get_url }}">
-								<i class="icon flaticon-flash31"></i>
+								{{ service.icon|safe }}
 								<div class="list-services__inner">
 									<h3 class="list-services__title">{{ service.name }}</h3>
 									<div class="list-services__description">{{ service.preview_text|truncatechars:140|safe }}</div>
