@@ -21,6 +21,8 @@ class Template(models.Model):
 
 
 class Service(MPTTModel):
+	published				 = models.BooleanField(default=False, 
+																			verbose_name=u"Опубликовать материал")
 	template         = models.ForeignKey(Template,
 																			verbose_name=u'Выбрать шаблон', 
 																			blank=True,

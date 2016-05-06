@@ -15,6 +15,8 @@ class ServiceAdmin(ImageCroppingMixin, admin.ModelAdmin):
 				})
 			},
 		}
+		list_display = ('name', 'slug', 'published')
+		list_display_links = ('name',)
 
 		def get_form(self, request, obj=None, **kwargs):
 			form = super(ServiceAdmin, self).get_form(request, obj, **kwargs)
