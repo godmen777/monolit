@@ -1,0 +1,27 @@
+
+<!-- Modal -->
+<div id="contactForm" tabindex="-1" role="dialog" class="contact-fast modal fade" style="display: none;">
+  <div class="modal-dialog">
+    <div class="new-letter-content modal-content">
+      <div class="new-letter-left">
+      	<img src="/static/assets/images/landing-banner4.jpg" alt="" class="img-responsive">
+        <div class="agent-single-info-wrapper">
+          <div class="agent-single-info"><i class="icon fa fa-mobile-phone"></i><span class="text">+1 234 567 89</span></div>
+          <div class="agent-single-info skype"><i class="icon fa fa-skype"></i><a href="index.html#" class="text">adam.smith.skype</a></div>
+          <div class="agent-single-info socials"><a href="index.html#" class="link facebook"><i class="fa fa-facebook-square"></i></a><a href="index.html#" class="link twitter"><i class="fa fa-twitter"></i></a><a href="index.html#" class="link google"><i class="fa fa-google-plus"></i></a><a href="index.html#" class="link instagram"><i class="fa fa-instagram"></i></a></div>
+        </div>
+      </div>
+      <div class="new-letter-right">
+        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+        <h4 class="underline">Связаться с нами</h4>
+
+        <p class="text">Введите ваши данные и отправьте на нашу почту и мы Вам перезвоним</p>
+
+        <form action="/send-contact-form/" method="post">{% csrf_token %}
+        	{{ form }}
+        	<button type="submit" class="btn btn-blue">Отправить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

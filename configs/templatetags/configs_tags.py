@@ -1,6 +1,7 @@
 #-*- coding: utf-8 -*-
 from django import template
 from configs.models import *
+from configs.forms import *
 from configs.methods import get_site_config
 
 register = template.Library()
@@ -27,6 +28,18 @@ def base_menu(context, request):
         'request': request,
     }
 register.inclusion_tag('configs/tags/base_menu.html', takes_context=True)(base_menu)
+
+
+def contact_form(context, request):
+    config = get_site_config(request)
+    form = ContactForm()
+    return {
+        'config': config,
+        'form': form,
+        'request': request,
+    }
+register.inclusion_tag('configs/tags/contact_form.html', takes_context=True)(contact_form)
+
 
 
 def contact_widget(context, request):
