@@ -18,20 +18,6 @@ class Category(MPTTModel):
 						max_length=50, 
 						unique=True, 
 						help_text=u'Ссылка формируется автоматически при заполнении.')
-	text             = RichTextUploadingField()
-	meta_keywords    = models.CharField(verbose_name=u'Мета ключевые слова',
-						max_length=255, 
-						blank=True)
-	meta_description = models.CharField(verbose_name=u'Мета описание',
-						max_length=255,
-						help_text=u'Нужно для СЕО', 
-						blank=True)
-	created_at       = models.DateTimeField(verbose_name=u'Создана',
-						null=True, 
-						auto_now_add=True)
-	updated_at       = models.DateTimeField(verbose_name=u'Обновлена',
-						null=True, 
-						auto_now=True)
 	parent           = TreeForeignKey('self',
 						verbose_name=u'Родительская категория', 
 						related_name='children',
@@ -40,8 +26,31 @@ class Category(MPTTModel):
 						null=True)
 
 	class Meta:
-		ordering = ['created_at']
 		verbose_name_plural = u'Категории'
+
+	def __unicode__(self):
+		try:
+			return "%s-%s" % ('--' * self.level, self.parent.name, self.name)
+		except:
+			return '%s%s' % ('--' * self.level, self.name)
+
+
+class Garage(MPTTModel):
+	"""Класс для категорий проектов"""
+	name             = models.CharField(u'Название',
+						max_length=50, 
+						unique=False)
+	slug             = models.SlugField(verbose_name=u'На гараж',
+						max_length=50, 
+						unique=True, 
+						help_text=u'Ссылка формируется автоматически при заполнении.')
+	parent           = TreeForeignKey('self',
+						related_name='children',
+						blank=True, 
+						null=True)
+
+	class Meta:
+		verbose_name_plural = u'Гараж'
 
 	def __unicode__(self):
 		try:
@@ -63,6 +72,7 @@ class Amenities(models.Model):
 class Project(models.Model):
 	account    = models.ForeignKey(Account)
 	category   = models.ForeignKey(Category)
+	garage   = models.ForeignKey(Garage, verbose_name=u'Гараж',)
 	amenities  = models.ManyToManyField(Amenities, 
 					blank=True)
 	name       = models.CharField(max_length=100,
@@ -105,6 +115,10 @@ class Project(models.Model):
 		return ProjectImage.objects.filter(project=self).first()
 	def get_all_images(self):
 		return ProjectImage.objects.filter(project=self)
+	def get_images_without_plan(self):
+		return ProjectImage.objects.filter(project=self, is_plan=False )
+	def get_images_with_plan(self):
+		return ProjectImage.objects.filter(project=self, is_plan=True )
 
 
 class ProjectImage(models.Model):
