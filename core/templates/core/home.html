@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load core_tags %}
+{% load configs_tags %}
 {% load flatblocks %}
 {% load cropping %}
 						
@@ -16,27 +17,7 @@
 
 
 {% block modal_block %}
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Обратный звонок</h4>
-				</div>
-
-				<div class="modal-body">
-					<form action="." method="post">{% csrf_token %}
-						{{ form }}
-						<br>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
-						<button type="submit" class="btn btn-blue">Отправить</button>
-					</form>
-				</div>
-
-			</div>
-		</div>
-	</div>
+	{% contact_form request %}
 {% endblock modal_block %}
 
 
@@ -52,7 +33,7 @@
 						<div class="price-for-house">
 							<div class="price"><sup><i class="fa fa-rub"></i></sup><span class="amount">11</span><span class="small amount">,999 / м²</span></div>
 						</div>
-						<a name="" data-toggle="modal" data-target="#myModal" class="btn btn-transparent white">Отправить заявку</a>
+						<a name="" data-toggle="modal" data-target="#contactForm" class="btn btn-transparent white">Отправить заявку</a>
 					</div>
 					{% flatblock "home_numbers" using="flatblocks/text.html" %}
 				</div>
@@ -363,7 +344,7 @@
 
 
 {% block contact_form %}
-	{% contact_form request %}
+	{% home_contact_form request %}
 {% endblock contact_form %}
 
 

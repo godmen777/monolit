@@ -4,6 +4,7 @@ register = template.Library()
 from configs.methods import get_site_config
 from siteprojects.models import Project
 from core.models import Page, Post
+from configs.forms import SubscribeForm
 
 
 def phone(context, request):
@@ -29,13 +30,15 @@ def sub_footer(context, request):
 register.inclusion_tag('core/tags/sub_footer.html', takes_context=True)(sub_footer)
 
 
-def contact_form(context, request):
+def home_contact_form(context, request):
     config = get_site_config(request)
+    form = SubscribeForm()
     return {
         'config': config,
+        'form': form,
         'request': request,
     }
-register.inclusion_tag('core/tags/contact_form.html', takes_context=True)(contact_form)
+register.inclusion_tag('core/tags/home_contact_form.html', takes_context=True)(home_contact_form)
 
 
 def search_tag(context, request):

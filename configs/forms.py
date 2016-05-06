@@ -7,8 +7,8 @@ from methods import get_site_config
 class ContactForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		super(ContactForm, self).__init__(*args, **kwargs)
-		self.fields['name'].widget.attrs = {'placeholder':'Ваше имя', 'class':'form-control'}
-		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'form-control'}
+		self.fields['name'].widget.attrs = {'placeholder':'Ваше имя', 'class':'contact-form black'}
+		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'contact-form black'}
 		self.fields['name'].label = ""
 		self.fields['phone'].label = ""
 	name = forms.CharField()
@@ -37,26 +37,26 @@ class ContactForm(forms.Form):
 class SubscribeForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		super(SubscribeForm, self).__init__(*args, **kwargs)
-		self.fields['name'].widget.attrs = {'placeholder':'Ваше имя', 'class':'form-control'}
-		self.fields['email'].widget.attrs = {'placeholder':'Ваш email', 'class':'form-control'}
-		self.fields['text'].widget.attrs = {'placeholder':'Поле для вопроса', 'class':'form-control'}
+		self.fields['name'].widget.attrs = {'placeholder':'Ваше имя', 'class':'contact-form'}
+		self.fields['email'].widget.attrs = {'placeholder':'Ваш email', 'class':'contact-form'}
+		self.fields['phone'].widget.attrs = {'placeholder':'Ваш телефон', 'class':'contact-form'}
 		self.fields['name'].label = ""
 		self.fields['email'].label = ""
-		self.fields['text'].label = ""
+		self.fields['phone'].label = ""
 	name = forms.CharField()
 	phone = forms.CharField()
-	phone = forms.Textarea()
+	email = forms.EmailField()
 
 	class Meta:
 		fields = [
 			'name',
 			'phone',
-			'text'
+			'email',
 		]
 		labels = {
 			"name": u"",
 			"phone": u"",
-			"text": u""
+			"email": u"",
 		}
 
 	def send_email(self, request):
@@ -65,6 +65,6 @@ class SubscribeForm(forms.Form):
 		config = get_site_config(request)
 		# отправка формы
 		subject = u'Подписка пользователя %s' % config.site.domain
-		message = u'Имя: %s \n email: %s \n вопрос: %s' % (data['name'], data['email'], data['text'])
+		message = u'Имя: %s \n телефон: %s \n email: %s' % (data['name'], data['phone'], data['email'])
 		send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
 
