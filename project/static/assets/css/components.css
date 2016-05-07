@@ -1452,6 +1452,9 @@ textarea.contact-form {
     position: relative;
     display: block
 }
+.our-service-items .icon-wrapper .icon{
+    line-height: 132px;
+}
 
 .our-service-items .icon-wrapper:after {
     position: absolute;
@@ -1478,9 +1481,15 @@ textarea.contact-form {
     transition: all 0.7s ease
 }
 
-.our-service-items .icon-wrapper .fa,
-.our-service-items .icon-wrapper .icon {
+.our-service-items .icon-wrapper .fa {
     font-size: 60px;
+    color: #00C853;
+    position: relative;
+    z-index: 2;
+    transition: all 0.7s ease
+}
+.our-service-items .icon-wrapper .icon {
+    font-size: 75px;
     color: #00C853;
     position: relative;
     z-index: 2;
