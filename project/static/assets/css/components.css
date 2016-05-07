@@ -1530,7 +1530,8 @@ textarea.contact-form {
 }
 
 .our-service-items:hover .icon-wrapper .icon-our-service,
-.our-service-items:hover .icon-wrapper .fa {
+.our-service-items:hover .icon-wrapper .fa,
+.our-service-items:hover .icon-wrapper .icon {
     color: #fff
 }
 
