@@ -100,34 +100,30 @@
 				</div>
 				<div class="col-md-4 sidebar margin-top-2">
 					<div class="contact-agent-widget">
-						<div class="title">Звоните нам</div>
-						<div class="media contact-agent-content">
-							<div class="media-left media-middle">
-								<img src="/media/{{ performer_profile.avatar }}" 
-									alt="" 
-									width="100"
-									class="agent-image"/>
-							</div>
-							<div class="media-body media-middle">
-								<div class="media-heading agent-name">{{performer_profile.first_name}}</div>
-								<span class="agent-pos">{{ performer_profile.about }}</span></div>
-						</div>
-						<div class="agent-info">
-							<div class="contact-info">
-								<div class="info">
-									<div class="phone"><i class="fa fa-mobile"></i><span>{{ performer_profile.phone }}</span></div>
+						<div class="contact-agent-content">
+							
+							<div class="title">Звоните нам</div>
+							<div class="agent-info">
+								<div class="contact-info">
+									<div class="info">
+										<div class="phone"><i class="fa fa-mobile"></i><span>{{ performer_profile.phone }}</span></div>
+									</div>
+									<div class="info">
+										<div class="email"><i class="fa fa-envelope-o"></i><span>{{ project.account.email }}</span></div>
+									</div>
+									<div class="info">
+										<div class="skype"><i class="fa fa-skype"></i><span>{{ performer_profile.skype }}</span></div>
+									</div>
 								</div>
-								<div class="info">
-									<div class="email"><i class="fa fa-envelope-o"></i><span>{{ project.account.email }}</span></div>
-								</div>
-								<div class="info">
-									<div class="skype"><i class="fa fa-skype"></i><span>{{ performer_profile.skype }}</span></div>
+								<div class="social-info">
+									<a href="{{ performer_profile.vk }}" class="link"><i class="fa fa-vk"></i></a>
+									<a href="{{ performer_profile.od }}" class="link"><i class="fa fa-odnoklassniki"></i></a>
 								</div>
 							</div>
-							<div class="social-info">
-								<a href="{{ performer_profile.vk }}" class="link"><i class="fa fa-vk"></i></a>
-								<a href="{{ performer_profile.od }}" class="link"><i class="fa fa-odnoklassniki"></i></a>
+							<div class="center">
+								<a data-toggle="modal" data-target="#contactForm" class="btn btn-blue accent">Обратный звонок</a>
 							</div>
+
 						</div>
 					</div>
 					<div class="main_information">

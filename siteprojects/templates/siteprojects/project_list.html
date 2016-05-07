@@ -9,8 +9,8 @@
 		<div class="container">
 			<div class="page-title-wrapper"><h2 class="captions">Список проектов</h2>
 				<ol class="breadcrumb">
-					<li><a href="index.html">Главная</a></li>
-					<li class="active"><a href="properties.html#">Проекты</a></li>
+					<li><a href="/">Главная</a></li>
+					<li class="active"><a href="#">Проекты</a></li>
 				</ol>
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 							{% for project in projects %}
 								<div class="property-item col-xs-6">
 									<div class="sunhouse-item">
-										<a href="properties.html#" class="wrapper-image">
+										<a href="{{ project.get_url }}" class="wrapper-image">
 											<img src="{% cropped_thumbnail project.get_all_images.0 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-1"/>
 											<img src="{% cropped_thumbnail project.get_all_images.1 "cropping_750x455" scale=1 %}" alt="" class="img-responsive layout-2"/>
 										</a>
@@ -54,7 +54,7 @@
 													<p>{{ project.bathrooms }} ванных комнат</p>
 												</div>
 											</div>
-											<div class="about-house"><a href="search-properties.html" class="title">{{ project.name }}</a>
+											<div class="about-house"><a href="{{ project.get_url }}" class="title">{{ project.name }}</a>
 												<div class="text">{{ project.text|truncatechars:200|striptags|safe }}</div>
 											</div>
 											<div class="more-info-house">

@@ -1,4 +1,3 @@
-
 <!-- Modal -->
 <div id="contactForm" tabindex="-1" role="dialog" class="contact-fast modal fade" style="display: none;">
   <div class="modal-dialog">
@@ -6,9 +5,9 @@
       <div class="new-letter-left">
       	<img src="/static/assets/images/landing-banner4.jpg" alt="" class="img-responsive">
         <div class="agent-single-info-wrapper">
-          <div class="agent-single-info"><i class="icon fa fa-mobile-phone"></i><span class="text">+1 234 567 89</span></div>
-          <div class="agent-single-info skype"><i class="icon fa fa-skype"></i><a href="index.html#" class="text">adam.smith.skype</a></div>
-          <div class="agent-single-info socials"><a href="index.html#" class="link facebook"><i class="fa fa-facebook-square"></i></a><a href="index.html#" class="link twitter"><i class="fa fa-twitter"></i></a><a href="index.html#" class="link google"><i class="fa fa-google-plus"></i></a><a href="index.html#" class="link instagram"><i class="fa fa-instagram"></i></a></div>
+          <div class="agent-single-info"><i class="icon fa fa-mobile-phone"></i><span class="text">{{ performer_profile.phone }}</span></div>
+          <div class="agent-single-info"><i class="fa fa-envelope-o"></i><span class="text">{{ config.site_email }}</span></div>
+          <div class="agent-single-info skype"><i class="icon fa fa-skype"></i><a href="#" class="text">{{ performer_profile.skype }}</a></div>
         </div>
       </div>
       <div class="new-letter-right">

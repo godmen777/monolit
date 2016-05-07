@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.contrib.sites.models import Site
+from authentication.models import Account
 
 
 class Config(models.Model):
@@ -11,6 +12,8 @@ class Config(models.Model):
     site_logo = models.ImageField(upload_to="config")
     site_logo2 = models.ImageField(upload_to="config")
     site_email = models.CharField(max_length=200, verbose_name=u"Почта администратора")
+
+    account = models.OneToOneField(Account)
 
     class Meta:
         verbose_name = u"Настройки сайта"

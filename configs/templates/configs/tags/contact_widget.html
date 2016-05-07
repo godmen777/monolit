@@ -1,21 +1,27 @@
-	<div class="contact-agent-widget">
-		<div class="title">Задать вопрос</div>
-		<div 
-			class="media contact-agent-content"
-			style="padding: 10px 0px;">
-			<div class="media-heading">Мы рады ответить на любые Ваши вопросы.</div>
-		</div>
-		<div 
-			class="agent-info"
-			style="padding-top: 10px;">
-			<div 
-				class="contact-info"
-				style="text-align: center;">
-				<a 
-					name="" 
-					data-toggle="modal" 
-					data-target="#contactForm" 
-					class="btn btn-transparent white">Написать нам</a>
+<div class="contact-agent-widget">
+	<div class="contact-agent-content">
+		
+		<div class="title">Звоните нам</div>
+		<div class="agent-info">
+			<div class="contact-info">
+				<div class="info">
+					<div class="phone"><i class="fa fa-mobile"></i><span>{{ performer_profile.phone }}</span></div>
+				</div>
+				<div class="info">
+					<div class="email"><i class="fa fa-envelope-o"></i><span>{{ config.site_email }}</span></div>
+				</div>
+				<div class="info">
+					<div class="skype"><i class="fa fa-skype"></i><span>{{ performer_profile.skype }}</span></div>
+				</div>
+			</div>
+			<div class="social-info">
+				<a href="{{ performer_profile.vk }}" class="link"><i class="fa fa-vk"></i></a>
+				<a href="{{ performer_profile.od }}" class="link"><i class="fa fa-odnoklassniki"></i></a>
 			</div>
 		</div>
+		<div class="center">
+			<a data-toggle="modal" data-target="#contactForm" class="btn btn-blue accent">Обратный звонок</a>
+		</div>
+
 	</div>
+</div>
