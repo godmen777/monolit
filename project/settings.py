@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'robots',
     'mptt',
+    'django_mptt_admin',
     # 'mptt-tree'
 
     # 'graphene'

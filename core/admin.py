@@ -5,10 +5,11 @@ from core.models import Service, Post, Page, Review, Partner, Notes, Template
 from image_cropping import ImageCroppingMixin
 # from mptt_tree_editor.admin import TreeEditor
 from mptt.admin import MPTTModelAdmin
-from mptt.admin import DraggableMPTTAdmin
+# from mptt.admin import DraggableMPTTAdmin
+from django_mptt_admin.admin import DjangoMpttAdmin
 
 
-class ServiceAdmin(ImageCroppingMixin, DraggableMPTTAdmin):
+class ServiceAdmin(ImageCroppingMixin, DjangoMpttAdmin):
 		model = Service
 		prepopulated_fields = {'slug': ('name',), }
 		formfield_overrides = {
@@ -18,8 +19,8 @@ class ServiceAdmin(ImageCroppingMixin, DraggableMPTTAdmin):
 				})
 			},
 		}
-		list_display = ('tree_actions', 'indented_title', 'name', 'slug', 'published')
-		list_display_links = ('indented_title', 'name',)
+		# list_display = ('tree_actions', 'indented_title', 'name', 'slug', 'published')
+		# list_display_links = ('indented_title', 'name',)
 
 		def get_form(self, request, obj=None, **kwargs):
 			form = super(ServiceAdmin, self).get_form(request, obj, **kwargs)

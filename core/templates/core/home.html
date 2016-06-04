@@ -3,7 +3,7 @@
 {% load configs_tags %}
 {% load flatblocks %}
 {% load cropping %}
-						
+
 {% block banner_block %}
 	<div class="section">
 		<div class="banner-01 banner-full-screen-2"></div>
@@ -48,7 +48,7 @@
 						{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
 					</div>
 					{% flatblock "home_center" using="flatblocks/text.html" %}
-				</div>	
+				</div>
 
 			</div>
 		</div>
@@ -97,7 +97,7 @@
 											<p>{{ project.bathrooms }} ванных комнат</p>
 										</div>
 									</div>
-									<div class="about-house"><a href="search-properties.html" class="title">{{ project.name }}</a>
+									<div class="about-house"><a href="{{ project.get_url }}" class="title">{{ project.name }}</a>
 										<div class="text">{{ project.text|safe|truncatechars:200 }}</div>
 									</div>
 									<div class="more-info-house">
@@ -110,9 +110,9 @@
 						{% endfor %}
 
 						<div class="col-md-12 center">
-							<a href="/projects/" class="btn btn-blue accent">смотреть все проекты</a>	
+							<a href="/projects/" class="btn btn-blue accent">смотреть все проекты</a>
 						</div>
-					
+
 					</div>
 				</div>
 			</div>
@@ -330,10 +330,10 @@
 			<div class="slider-logo-wrapper">
 				<div class="carousel-logos">
 					{% for partner in partner_list %}
-						<div class="logo-item item"><a href="{{ partner.link }}"><img src="{{ partner.get_logo_url }}" alt="" class="img-responsive"/></a></div>	
+						<div class="logo-item item"><a href="{{ partner.link }}"><img src="{{ partner.get_logo_url }}" alt="" class="img-responsive"/></a></div>
 					{% endfor %}
 					{% for partner in partner_list %}
-						<div class="logo-item item"><a href="{{ partner.link }}"><img src="{{ partner.get_logo_url }}" alt="" class="img-responsive"/></a></div>	
+						<div class="logo-item item"><a href="{{ partner.link }}"><img src="{{ partner.get_logo_url }}" alt="" class="img-responsive"/></a></div>
 					{% endfor %}
 				</div>
 			</div>
