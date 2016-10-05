@@ -41,17 +41,9 @@
 
 										<div class="wrapper-content">
 											<div class="info-house">
-												<div class="info">
-													<i class="icon-house_1"></i>
-													<p>{{ project.square }} м²</p>
+												<div class="info">Общая площадь:<span>{{ project.combined_area }}</span><span class="metr">м²</span>
 												</div>
-												<div class="info">
-													<i class="icon-bed"></i>
-													<p>{{ project.badrooms }} спльных комнат</p>
-												</div>
-												<div class="info">
-													<i class="icon-bath"></i>
-													<p>{{ project.bathrooms }} ванных комнат</p>
+												<div class="info"><i class="fa fa-car"></i><span> {{ project.garage.name }}</span>
 												</div>
 											</div>
 											<div class="about-house"><a href="{{ project.get_url }}" class="title">{{ project.name }}</a>
@@ -67,7 +59,7 @@
 							{% endfor %}
 
 							<div class="clearfix"></div>
-							<ul class="pagination col-md-12">
+							<!-- <ul class="pagination col-md-12">
 								<li class="pagi-item disable"><a href="properties.html#" class="link-pagination">Previous</a></li>
 								<li class="pagi-item active"><a href="properties.html#" class="link-pagination">1</a></li>
 								<li class="pagi-item"><a href="properties.html#" class="link-pagination">2</a></li>
@@ -75,11 +67,31 @@
 								<li class="pagi-item"><a href="properties.html#" class="link-pagination">9</a></li>
 								<li class="pagi-item"><a href="properties.html#" class="link-pagination">10</a></li>
 								<li class="pagi-item"><a href="properties.html#" class="link-pagination">Next</a></li>
-							</ul>
+							</ul> -->
 						</div>
 					</div>
 					<div class="col-md-4 sidebar">
 						{% contact_widget request %}
+						<div class="search-widget widget">
+							<div class="title-widget">Параметры проектов</div>
+							<div class="search-link">
+								<a href="/projects/?area_max=150&area_min=0" class="btn btn-blue">Малые дома<span class="subtitle">до 150 м<sup>2</sup></span></a>
+							</div>
+							<div class="search-link">
+								<a href="/projects/?area_max=150&area_min=0" class="btn btn-blue">Средние дома <span class="subtitle">до 150-200 м<sup>2</sup></span></a>
+							</div>
+							<div class="search-link">
+								<a href="/projects/?category_id=4" class="btn btn-blue">1-этажные дома</a>
+							</div>
+							<div class="search-link">
+								<a href="/projects/?category_id=6" class="btn btn-blue">Дома с мансардой</a>
+							</div>
+							<div class="search-link">
+								<a href="/projects/?category_id=5" class="btn btn-blue">2-этажные дома</a>
+							</div>
+
+							{# <p>Найденно:{{ projects|length }} проекта</p> #}
+						</div >
 						<div class="feature-widget widget">
 							<div class="title-widget">Публикации</div>
 							<div class="content-widget">

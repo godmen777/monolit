@@ -83,17 +83,19 @@ class Project(models.Model):
 					max_length=50, 
 					unique=True, 
 					help_text=u'Ссылка формируется автоматически при заполнении.')
-	square     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Высота в коньке')
+	square     = models.CharField(blank=True, max_length=100, verbose_name=u'Высота в коньке')
 	roof_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Площадь крыши')
 	combined_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Общая площадь')
-	building_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Площадь застройки')
+	living_area     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Жилая площадь')
+	kubatura    = models.CharField(blank=True, max_length=100, verbose_name=u'Кубатура')
+	building_area    = models.CharField(blank=True, max_length=100, verbose_name=u'Площадь застройки')
 	ugol_inclination     = models.DecimalField(blank=True, null=True, max_digits=5, decimal_places=2, verbose_name=u'Угол наклона крыши')
 	# badrooms   = models.IntegerField(verbose_name=u'Колличество спален')
 	# bathrooms  = models.IntegerField(verbose_name=u'Колличество ванных комнат')
 	text       = RichTextField()
 	material   = RichTextField()
 	for_sale   = models.BooleanField(default=False,
-					verbose_name=u"на продажу")
+					verbose_name=u"на продажу")	
 	featured   = models.BooleanField(default=False,
 					verbose_name=u"В интересное")
 	created_at = models.DateTimeField(u'Created at',
@@ -129,6 +131,8 @@ class ProjectImage(models.Model):
 						help_text=u'Изображение', 
 						blank=True)
 	is_plan 				 = models.BooleanField(default=False, verbose_name=u'План')
+	description_img = models.CharField(blank=True, max_length=100,
+				verbose_name=u'Заголовок изображения')
 	cropping         = ImageRatioField('image',
 						'500x320', 
 						verbose_name=u'Обрезка для проекта 500x320')
