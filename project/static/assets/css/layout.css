@@ -120,8 +120,8 @@ h5 {
     height: 36px;
     color: #fff;
     position: absolute;
-    right: 15px;
-    top: -15px;
+    left: 0;
+    top: -6px;
     text-transform: uppercase;
     font-weight: 300;
     text-align: center;

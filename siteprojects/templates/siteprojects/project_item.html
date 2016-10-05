@@ -29,6 +29,9 @@
 				<div class="col-md-8 detail-content">
 					<div class="row gallery">
 						<div class="col-md-12 gallery-item">
+							<div class="lable-pro">
+								<i class="fa fa-home"></i><span> {{ project.category }}</span>
+							</div>
 							<div class="gallery-slider">
 								{% for image in project.get_images_without_plan %}
 									<div class="slider-item"><img src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" alt=""/></div>	
@@ -74,7 +77,12 @@
 										</div>
 										<div id="panel2" class="tab-pane fade">
 											{% for image in project.get_images_with_plan %}
-												<div class="slider-item"><img src="{% cropped_thumbnail image "cropping_750x455" scale=1 %}" alt=""/></div>	
+												<div class="zoom-gallery col-md-6">
+													<p class="description_img">{{ image.description_img }}</p>
+													<a href="{{ image.get_url }}" title="{{ image.description_img }}">
+														<img src="{{ image.get_url }}" class="img-responsive" alt=""/>
+													</a>
+												</div>	
 											{% endfor %}
 										</div>
 										<div id="panel3" class="tab-pane fade">
@@ -144,6 +152,9 @@
 							<ul>
 								{% if project.building_area %}
 									<li><div class="info">Площадь застройки:<span>{{ project.building_area }}</span><span class="metr">м²</span></div></li>
+								{% endif %}
+								{% if project.living_area %}
+									<li><div class="info">Жилая площадь:<span>{{ project.living_area }}</span><span class="metr">м²</span></div></li>
 								{% endif %}
 								{% if project.kubatura %}
 									<li><div class="info">Кубатура:<span>{{ project.kubatura }}</span><span class="metr">м³</span></div></li>
