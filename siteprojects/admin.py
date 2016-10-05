@@ -20,7 +20,7 @@ class ProjectAdmin(admin.ModelAdmin):
     model = Project
     fieldsets = [
         (u'Параметры проекта', {'fields':['account','category','garage','name','slug','amenities']}),
-        (u'Основная информация', {'fields':['combined_area','building_area','square','ugol_inclination',
+        (u'Основная информация', {'fields':['combined_area','living_area','building_area','kubatura','square','ugol_inclination',
             'roof_area','dimensions_home']}),
         (u'Описание', {'fields': ['text']}),
         (u'Материал', {'fields': ['material']}),

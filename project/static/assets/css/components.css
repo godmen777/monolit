@@ -5555,3 +5555,30 @@ body.ie .contact-us .contact-us-scroll, body.browser-ie .contact-us .contact-us-
 .cs-wrapper .count-container {
     display: none
 }
+p.description_img {
+    text-align: right;
+    font-weight: bold;
+}       
+#panel2 {width:100%; overflow:hidden;}
+#panel2 a {position:relative; float:left; margin:5px;}
+#panel2 a span { background-image:url(/static/monolit/images/zoom.png); background-repeat:no-repeat; width:48px; height:48px; display:none;
+                  position:absolute; left:15px; top:15px;}
+#panel2 img { border: solid 1px #999; padding:5px;}
+.search-link a{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.lable-pro {
+    color: #fff;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    display: table;
+    z-index: 2;
+    padding: 5px 10px;
+    background: #00c853;
+}

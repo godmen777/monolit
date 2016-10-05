@@ -20,6 +20,16 @@ def project_item(request, slug, template_name="siteprojects/project_item.html"):
 
 
 def project_list(request, template_name="siteprojects/project_list.html"):
-	projects = Project.objects.all()
 	posts = Post.objects.all()[:5]
+	area_min = request.GET.get('area_min','')
+	area_max = request.GET.get('area_max','')
+	category_id = request.GET.get('category_id','')
+	if area_min and area_max:
+		projects = Project.objects.filter(combined_area__gte=int(area_min)).filter(combined_area__lte=int(area_max))
+	elif category_id:
+		projects = Project.objects.filter(category_id__exact=int(category_id))
+	else: 
+		projects = Project.objects.all()	
+
+		
 	return render_to_response(template_name, locals(), context_instance=RequestContext(request))
