@@ -14,7 +14,7 @@
 {% block content %}
 <div class="section background-opacity page-title blog bg-overlay">
 	<div class="container">
-		<div class="page-title-wrapper"><h2 class="captions">Услуги</h2>
+		<div class="page-title-wrapper"><h1 class="captions">Услуги</h1>
 			<ol class="breadcrumb">
 				<li><a href="/">Главная</a></li>
 				<li class="active"><a href="#">Услуги</a></li>
@@ -37,7 +37,7 @@
 							<a class="list-services__link clearfix" href="{{ service.get_url }}">
 								{{ service.icon|safe }}
 								<div class="list-services__inner">
-									<h3 class="list-services__title">{{ service.name }}</h3>
+									<h2 class="list-services__title">{{ service.name }}</h2>
 									<div class="list-services__description">{{ service.preview_text|truncatechars:140|safe }}</div>
 								</div>
 							</a>
