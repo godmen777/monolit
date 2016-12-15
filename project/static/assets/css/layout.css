@@ -35,10 +35,8 @@ a:hover, a:active, a:focus {
 }
 
 h1, h2, h3, h4 {
-    font-weight: bold;
     font-family: "Raleway";
     text-transform: uppercase;
-    font-weight: 900;
 }
 
 h5 {
@@ -63,7 +61,27 @@ h5 {
     position: relative;
     display: block
 }
-
+.block-ocenka img{
+    width: 100%;
+}
+.block-ocenka h3 {
+    text-transform: none;
+    font-size: 19px;
+    height: 38px;
+}
+.block-ocenka ul{
+    padding-left: 0;
+}
+ .block-ocenka h5 {
+    font-size: 17px;
+    font-style: italic;
+    border-bottom: 1px solid #3d475f;
+}
+.our-service-content h2 {
+    font-size: 15px;
+    text-transform: none;
+    font-size: 19px;
+}
 .img-hover:after {
     position: absolute;
     content: '';
