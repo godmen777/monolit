@@ -27,11 +27,12 @@ class Config(models.Model):
 
     def get_logo_url(self):
         return "/media/%s" % self.site_logo.name
+
     def get_logo2_url(self):
         return "/media/%s" % self.site_logo2.name
 
     def __unicode__(self):
-        return self.site_name
+        return self.id
 
 
 class SitePhone(models.Model):

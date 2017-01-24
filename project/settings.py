@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'monolitmhevt!73w)z)co07y8s&awfpo0y)^2=-&zo-qxqbdj9h$fw+9t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'monolit-stroy.net']
 # SITE_ID = 2
 
 # Application definition
@@ -182,6 +182,6 @@ MEDIA_ROOT = BASE_DIR + "/project/media/"
 GRAPHENE_SCHEMA = 'core.schema'
 
 try:
-    from project.settings_local import *
+    from project.settings_local import *  # noqa
 except ImportError:
     pass
