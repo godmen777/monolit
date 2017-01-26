@@ -12,9 +12,9 @@ class ProjectForm(forms.Form):
         self.fields['phone'].widget.attrs = {'placeholder': 'Ваш телефон', 'class': 'form-control'}
         self.fields['name'].label = ""
         self.fields['phone'].label = ""
-        #  name = forms.CharField()
-        #  phone = forms.CharField()
-        #  project = forms.IntegerField(widget=forms.HiddenInput)
+        name = forms.CharField()
+        phone = forms.CharField()
+        project = forms.IntegerField(widget=forms.HiddenInput)
 
         class Meta:
             fields = [
@@ -45,8 +45,8 @@ class ContactForm(forms.Form):
         self.fields['phone'].widget.attrs = {'placeholder': 'Ваш телефон', 'class': 'contact-form black'}
         self.fields['name'].label = ""
         self.fields['phone'].label = ""
-        #  name = forms.CharField()
-        #  phone = forms.CharField()
+        name = forms.CharField()
+        phone = forms.CharField()
 
         class Meta:
             fields = [
@@ -77,9 +77,9 @@ class SubscribeForm(forms.Form):
         self.fields['name'].label = ""
         self.fields['email'].label = ""
         self.fields['phone'].label = ""
-        #  name = forms.CharField()
-        #  phone = forms.CharField()
-        #  email = forms.EmailField()
+        name = forms.CharField()
+        phone = forms.CharField()
+        email = forms.EmailField()
 
         class Meta:
             fields = [
