@@ -32,7 +32,7 @@ class Config(models.Model):
         return "/media/%s" % self.site_logo2.name
 
     def __unicode__(self):
-        return self.id
+        return "%s" % self.id
 
 
 class SitePhone(models.Model):
