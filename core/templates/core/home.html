@@ -146,21 +146,20 @@
 							</div>
 						</div>
 						{% endfor %}
-
 					</div>
-					<div class="block-about-text">
-						<div class="sunhouse-title">
-							<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/></div>
-							<h2 class="main-title">О строительной	  компании "Монолит"</h2>
-							<p class="sub-title">Строительная компания Монолит — продажа и строительство частных домов под ключ в Новороссийске</p><br>
-							{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
-						</div>
-
-						{% flatblock "block_about" using="flatblocks/text.html" %}
+				</div>
+				<div class="block-about-text">
+					<div class="sunhouse-title">
+						<div class="icon-image"><img src="/static/assets/images/favicon_white3_min2.png" alt="" class="img-responsive"/></div>
+						<h2 class="main-title">О строительной	  компании "Монолит"</h2>
+						<p class="sub-title">Строительная компания Монолит — продажа и строительство частных домов под ключ в Новороссийске</p><br>
+						{# <p class="sub-title"><a href="/services/soprovozhdenie-obekta" class="btn btn-blue">Получать почту</a></p> #}
 					</div>
+					{% flatblock "block_about" using="flatblocks/text.html" %}
 				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 {% endblock services_block %}

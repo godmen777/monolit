@@ -27,15 +27,15 @@ class ProjectForm(forms.Form):
             "phone": u""
         }
 
-        def send_email(self, request):
-            data = self.cleaned_data
-            # получаем данные конфигурации сайта
-            config = get_site_config(request)
-            project = Project.objects.get(id=data['project'])
-            # отправка формы
-            subject = u'Контактные данные пользователя %s' % config.site.domain
-            message = u'Имя: %s \n телефон: %s \n Название проекта: %s' % (data['name'], data['phone'], project.name)
-            send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+    def send_email(self, request):
+        data = self.cleaned_data
+        # получаем данные конфигурации сайта
+        config = get_site_config(request)
+        project = Project.objects.get(id=data['project'])
+        # отправка формы
+        subject = u'Контактные данные пользователя %s' % config.site.domain
+        message = u'Имя: %s \n телефон: %s \n Название проекта: %s' % (data['name'], data['phone'], project.name)
+        send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
 
 
 class ContactForm(forms.Form):
@@ -58,14 +58,14 @@ class ContactForm(forms.Form):
             "phone": u""
         }
 
-        def send_email(self, request):
-            data = self.cleaned_data
-            # получаем данные конфигурации сайта
-            config = get_site_config(request)
-            # отправка формы
-            subject = u'Контактные данные пользователя %s' % config.site.domain
-            message = u'Имя: %s \n телефон: %s' % (data['name'], data['phone'])
-            send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+    def send_email(self, request):
+        data = self.cleaned_data
+        # получаем данные конфигурации сайта
+        config = get_site_config(request)
+        # отправка формы
+        subject = u'Заявка наобратный з %s' % config.site.domain
+        message = u'Имя: %s \n телефон: %s' % (data['name'], data['phone'])
+        send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
 
 
 class SubscribeForm(forms.Form):
@@ -93,11 +93,35 @@ class SubscribeForm(forms.Form):
             "email": u"",
         }
 
-        def send_email(self, request):
-            data = self.cleaned_data
-            # получаем данные конфигурации сайта
-            config = get_site_config(request)
-            # отправка формы
-            subject = u'Подписка пользователя %s' % config.site.domain
-            message = u'Имя: %s \n телефон: %s \n email: %s' % (data['name'], data['phone'], data['email'])
-            send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+    def send_email(self, request):
+        data = self.cleaned_data
+        # получаем данные конфигурации сайта
+        config = get_site_config(request)
+        # отправка формы
+        subject = u'Подписка пользователя %s' % config.site.domain
+        message = u'Имя: %s \n телефон: %s \n email: %s' % (data['name'], data['phone'], data['email'])
+        send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)
+
+class MeasureForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super(MeasureForm, self).__init__(*args, **kwargs)
+        self.fields['phone'].widget.attrs = {'placeholder': 'Ваш телефон', 'class': 'contact-form'}
+        self.fields['phone'].label = ""
+    phone = forms.CharField()
+
+    class Meta:
+        fields = [
+            'phone',
+        ]
+        labels = {
+            "phone": u"",
+        }
+
+    def send_email(self, request):
+        data = self.cleaned_data
+        # получаем данные конфигурации сайта
+        config = get_site_config(request)
+        # отправка формы
+        subject = u'Заявка на замер %s' % config.site.domain
+        message = u'телефон: %s' % (data['phone'])
+        send_mail(subject, message, 'teamer777@gmail.com', [config.site_email], fail_silently=False)

@@ -1,5 +1,4 @@
-<!-- Modal -->
-<div id="contactForm" tabindex="-1" role="dialog" class="contact-fast modal fade" style="display: none;">
+<div id="measureForm" tabindex="-1" role="dialog" class="contact-fast modal fade" style="display: none;">
   <div class="modal-dialog">
     <div class="new-letter-content modal-content">
       <div class="new-letter-left">
@@ -12,11 +11,9 @@
       </div>
       <div class="new-letter-right">
         <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-        <h4 class="underline">Связаться с нами</h4>
+        <h4 class="underline">Запись на замер</h4>
 
-        <p class="text">Введите ваши данные и отправьте на нашу почту и мы Вам перезвоним</p>
-
-        <form action="/send-contact-form/" method="post">{% csrf_token %}
+        <form action="/measure-form/" method="post">{% csrf_token %}
         	{{ form }}
         	<button type="submit" class="btn btn-blue">Отправить</button>
         </form>
