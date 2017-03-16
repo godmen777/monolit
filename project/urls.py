@@ -37,7 +37,7 @@ urlpatterns = [
 
     url(r'^graphql', csrf_exempt(GraphQLView.as_view(schema=schema))),
     url(r'^graphiql', include('django_graphiql.urls')),
-    
+
     url(r'^api/', include(router.urls)),
     url(r'^flatblocks/(?P<pk>\d+)/edit/$', login_required(edit), name='flatblocks-edit'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

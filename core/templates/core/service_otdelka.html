@@ -1,0 +1,368 @@
+{% extends "base.html" %}
+{% load core_tags %}
+{% load configs_tags %}
+{% load flatblocks %}
+{% load cropping %}
+
+
+{% block banner_block %}
+<div class="es1 _main">
+  <div class="container">
+    <div class="es1__pict"></div>
+    <div class="es1__sto"><img src="/static/monolit/images/sto.png"> </div>
+    <div class="es1__block">
+        <h1><span>Ремонт квартир</span></h1>
+        <p class="es1__block_p"><span>и офисов</span></p>
+        <div class="es1__menu">
+          <ul>
+            <li>
+              <a href="/services/<otdelka-kvartir/"><img src="/static/monolit/images/otdelka-icons.png" alt="">Отделка квартир</a>
+            </li>
+            <li>
+              <a href="/services/remont-vannoj-komnaty/"><img src="/static/monolit/images/bathtub-icons.png" alt="">Ремонт ванной комнаты</a>
+            </li>
+            <li>
+              <a href="/services/remont-kuhni/"><img src="/static/monolit/images/kuchnya-icons.png" alt="">Ремонт кухни</a>
+            </li>
+          </ul>
+        </div>
+        <div class="es1_skidka__block">
+          <div class="es1_skidka__block_item">
+              <div class="es1_7day">Качество<div>
+              <div class="es1_skidka">по разумной цене</div>
+            </div>
+          </div>
+          <div class="b-top__zamer">
+            <a data-toggle="modal" data-target="#contactForm" class="btn btn-blue accent">Записаться на замер</a>
+        	</div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+{% endblock banner_block %}
+{% block otdelka %}
+<div class="otdelka-block">
+  <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="advantages-horizontally__item">
+                <div class="advantages-horizontally__icon advantages-horizontally__icon-1">
+                </div>
+                <div class="advantages-horizontally__text">
+                    Без предоплаты и скрытых платежей
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="advantages-horizontally__item">
+                <div class="advantages-horizontally__icon advantages-horizontally__icon-2">
+                </div>
+                <div class="advantages-horizontally__text">
+                    Гарантия на работу 24&nbsp;месяца
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="advantages-horizontally__item">
+                <div class="advantages-horizontally__icon advantages-horizontally__icon-3">
+                </div>
+                <div class="advantages-horizontally__text">
+                    100% соблюдение сроков
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="advantages-horizontally__item">
+                <div class="advantages-horizontally__icon advantages-horizontally__icon-4">
+                </div>
+                <div class="advantages-horizontally__text">
+                    Выгодная стоимость ремонта
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="otdelka-block-2">
+  <div class="container">
+    <h2>Ремонт квартир в Новороссийске</h2>
+    <p>Каждый владелец жилья рано или поздно сталкивается с необходимостью проведения ремонта. Чтобы этот процесс не был сложным и растянутым во времени, нужно ответственно подойти к выбору исполнителей для его реализации.</p>
+  </div>
+</div>
+<div class="otdelka-block-3"><p>
+  <div class="container">
+  </p><p>Наши неоспоримые преимущества и высокий уровень сервиса, предоставляемые заказчикам. Качественный ремонт квартир&nbsp;является совокупностью важных и ответственных мероприятий, которые в нашей компании выполняют специалисты, имеющие высокий &nbsp;уровень квалификации.</p>
+  <ul>
+    <li>Индивидуально работаем с каждым нашим клиентом и выполняем персональное сопровождение заказа на всех этапах его реализации.</li>
+    <li>Предоставляем полнообъемные консультации и необходимую помощь в подборе материалов.</li>
+    <li>Осуществляем предварительный осмотр, замеры и составление сметно-расчетной документации (бесплатно).</li>
+    <li>Выполняем технический надзор на всех этапах выполнения работ.</li>
+    <li>Предоставляем гарантийные обязательства на весь объем выполненных работ сроком на один года.</li>
+    <li>Оплата выполняется исключительно по факту выполнения каждого этапа в рамках запланированных работ.</li>
+    <li>Предлагаем выполнение услуг в кредит.</li>
+    <li>Гарантируем соблюдение действующих ГОСТов и стандартов качества.</li>
+    <li>Осуществляем вывоз строительного мусора и уборку помещений после выполнения всех работ.</li>
+  </ul>
+  <p><strong>Ремонт квартир, выполненный мастерами нашей компании – это грамотно и аккуратно осуществленные работы в точно указанный срок.</strong></p>
+  </div>
+</div>
+<div class="services-remont">
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12">
+            <div class="title">
+                <h3>Наши услуги</h3>
+            </div>
+        </div>
+    </div>
+  <div class="row">
+    <div class="services__items">
+      <div class="services__small-mobile col-xs-6 col-sm-4">
+        <div class="services__item">
+            <a class="services__link" href="services/otdelka-kvartir/">
+                <img alt="" class="services__img" src="/static/monolit/images/otdelka-kvartir.png">
+                <div class="services__info-block">
+                    <div class="services__info-content-wrapper">
+                        <div class="services__info-content">
+                            <div class="services__text">
+                                Отделка
+                            </div>
+                            <div class="services__name">
+                                квартиры
+                            </div>
+                            <div class="services__line"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+          </div>
+        </div>
+      <div class="services__small-mobile col-xs-6 col-sm-4">
+        <div class="services__item">
+            <a class="services__link" href="services/remont-kottedzhej/">
+                <img alt="" class="services__img" src="/static/monolit/images/otdelka-kotedj.png">
+                <div class="services__info-block">
+                    <div class="services__info-content-wrapper">
+                        <div class="services__info-content">
+                            <div class="services__text">
+                                Ремонт
+                            </div>
+                            <div class="services__name">
+                                коттеджа
+                            </div>
+                            <div class="services__line"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+      </div>
+      <div class="services__small-mobile col-xs-6 col-sm-4">
+        <div class="services__item">
+            <a class="services__link" href="services/remont-ofisov/">
+                <img alt="" class="services__img" src="/static/monolit/images/otdelka-ofis.png">
+                <div class="services__info-block">
+                    <div class="services__info-content-wrapper">
+                        <div class="services__info-content">
+                            <div class="services__text">
+                                Ремонт
+                            </div>
+                            <div class="services__name">
+                                офиса
+                            </div>
+                            <div class="services__line"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="services__small-mobile col-xs-6 col-sm-4">
+        <div class="services__item">
+            <a class="services__link" href="services/remont-vannoj-komnaty/">
+                <img alt="" class="services__img" src="/static/monolit/images/otdelka-bathtub.png">
+                <div class="services__info-block">
+                    <div class="services__info-content-wrapper">
+                        <div class="services__info-content">
+                            <div class="services__text">
+                                Ремонт
+                            </div>
+                            <div class="services__name">
+                                ванной комнаты
+                            </div>
+                            <div class="services__line"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="services__small-mobile col-xs-6 col-sm-4">
+        <div class="services__item">
+            <a class="services__link" href="services/remont-komnaty/">
+                <img alt="" class="services__img" src="/static/monolit/images/otdelka-komnata.png">
+                <div class="services__info-block">
+                    <div class="services__info-content-wrapper">
+                        <div class="services__info-content">
+                            <div class="services__text">
+                                Ремонт
+                            </div>
+                            <div class="services__name">
+                                комнаты
+                            </div>
+                            <div class="services__line"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="services__small-mobile col-xs-6 col-sm-4">
+        <div class="services__item">
+            <a class="services__link" href="services/remont-kuhni/">
+                <img alt="" class="services__img" src="/static/monolit/images/otdelka-kuchnya.png">
+                <div class="services__info-block">
+                    <div class="services__info-content-wrapper">
+                        <div class="services__info-content">
+                            <div class="services__text">
+                                Ремонт
+                            </div>
+                            <div class="services__name">
+                                кухни
+                            </div>
+                            <div class="services__line"></div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="otdelka-pri">
+  <div class="container">
+    <div class="otdelka-pri-title"><h4>Почему ремонтная организация лучше частного мастера?</h4></div>
+    <div class="subtitle">Строительно-ремонтная организация несет за&nbsp;свою работу юридическую ответственность&nbsp;– с&nbsp;каждым клиентом заключается договор, в&nbsp;котором чётко прописываются условия работы и&nbsp;следующие гарантии:</div>
+      <div class="col-md-4">
+        <span><img src="/static/monolit/images/do1.png" alt=""></span>
+        <p>Выполнение работ только квалифицированными мастерами, имеющими гражданство&nbsp;РФ</p>
+      </div>
+      <div class="col-md-4">
+        <span><img src="/static/monolit/images/do2.png" alt=""></span>
+        <p>Осуществление монтажных работ в&nbsp;соответствии со&nbsp;строительными нормами</p>
+      </div>
+      <div class="col-md-4">
+        <span><img src="/static/monolit/images/do3.png" alt=""></span>
+        <p>Стабильная смета от&nbsp;начала работ до&nbsp;сдачи проекта</p>
+      </div>
+      <div class="col-md-4">
+        <span><img src="/static/monolit/images/do4.png" alt=""></span>
+        <p>Оплата по&nbsp;факту выполнения работ</p>
+      </div>
+      <div class="col-md-4">
+        <span><img src="/static/monolit/images/do5.png" alt=""></span>
+        <p>Двойной контроль качества работ&nbsp;прорабом и&nbsp;технологом</p>
+      </div>
+      <div class="col-md-4">
+        <span><img src="/static/monolit/images/do6.png" alt=""></span>
+        <p>Соблюдение графика ремонтных работ</p>
+      </div>
+    <div class="col-md-12">После завешения ремонта вы&nbsp;получаете гарантийный сертификат на&nbsp;все выполненные работы</div>
+  </div>
+</div>
+<div class="works-otdelka">
+  <div class="container">
+    <h3><span>Стоимость ремонта&nbsp;м<sup>2</sup></span></h3>
+    <div class="col-md-4">
+      <h3>Косметический ремонт</h3>
+      <img class="img-responsive" src="/static/monolit/images/otdelka-kosmetik.png" alt="">
+      <div class="prise-remont">
+        <span>цена от <big>3 000</big> руб./м<sup>2</sup></span>
+      </div>
+      <div class="work-text">
+        <strong>Какие работы включает</strong>
+        <ul>
+          <li>Демонтажные работы</li>
+          <li>Грунтование стен и&nbsp;потолка</li>
+          <li>Шпатлевка стен и&nbsp;потолка</li>
+          <li>Выравнивание пола под ламинат</li>
+          <li>Монтаж пластиковых панелей в&nbsp;ванной</li>
+          <li>Установка сантехники</li>
+          <li>Замена розеток</li>
+          <li>Покраска потолка</li>
+          <li>Поклейка обоев</li>
+          <li>Укладка ламината</li>
+          <li>Уборка в&nbsp;помещении и&nbsp;сдача объекта</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Капитальный ремонт</h3>
+      <img class="img-responsive" src="/static/monolit/images/otdelka-kopetal.png" alt="">
+      <div class="prise-remont">
+        <span>цена от <big>6 000</big> руб./м<sup>2</sup></span>
+      </div>
+      <div class="work-text">
+        <strong>Какие работы включает</strong>
+        <ul>
+          <li>Дизайн-проект интерьера</li>
+          <li>Демонтажные работы</li>
+          <li>Выравнивание стен и&nbsp;потолка</li>
+          <li>Шпатлевка стен и&nbsp;потолка</li>
+          <li>Выравнивание пола</li>
+          <li>Полная замена электропроводки</li>
+          <li>Замена труб водоснабжения</li>
+          <li>Укладка плитки</li>
+          <li>Покраска потолка</li>
+          <li>Поклейка обоев</li>
+          <li>Монтаж напольного покрытия</li>
+          <li>Уборка в&nbsp;помещении и&nbsp;сдача объекта</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3>Евроремонт</h3>
+      <img class="img-responsive" src="/static/monolit/images/otdelka-evro.png" alt="">
+      <div class="prise-remont">
+        <span>цена от <big>8 000</big> руб./м<sup>2</sup></span>
+      </div>
+      <div class="work-text">
+        <strong>Какие работы включает</strong>
+        <ul>
+          <li>Разработка эксклюзивного дизайн-проекта интерьера с&nbsp;3D-визуализацией</li>
+          <li>Демонтажные работы и&nbsp;вывоз мусора</li>
+          <li>Возведение стен</li>
+          <li>Грунтование поверхности</li>
+          <li>Выравнивание и&nbsp;подготовка стен</li>
+          <li>Монтаж фигурного потолка</li>
+          <li>Выравнивание пола</li>
+          <li>Полная замена электропроводки</li>
+          <li>Укладка плитки</li>
+          <li>Установка сантехники</li>
+          <li>Покраска стен и&nbsp;потолка</li>
+          <li>Укладка штучного паркета</li>
+          <li>Уборка квартиры и&nbsp;сдача объекта</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock  %}
+
+{% block content %}
+<div class="section blog-detail">
+	<div class="container">
+		<div class="blog-detail-wrapper row">
+			<div class="col-md-12 blog-content padding-top padding-bottom">
+				<div class="clearfix"></div>
+				<div class="blog-text">{# <p class="title">{{ service.name }}</p> #}
+					{{ service.text|safe }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}

@@ -45,6 +45,20 @@ register.inclusion_tag('configs/tags/contact_form.html', takes_context=True)(con
 
 
 
+def measure_form(context, request):
+    config = get_site_config(request)
+    performer_profile = config.account.performer_of_account
+    form = MeasureForm()
+    return {
+        'config': config,
+        'performer_profile': performer_profile,
+        'form': form,
+        'request': request,
+    }
+register.inclusion_tag('configs/tags/measure_form', takes_context=True)(measure_form)
+
+
+
 def contact_widget(context, request):
     config = get_site_config(request)
     performer_profile = config.account.performer_of_account
