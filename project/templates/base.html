@@ -58,7 +58,8 @@
 
 				{% block banner_block %}
 				{% endblock banner_block %}
-
+				{% block otdelka %}
+				{% endblock  %}
 				{% block about_block %}
 				{% endblock about_block %}
 
@@ -88,7 +89,7 @@
 
 				{% block contact_form %}
 				{% endblock contact_form %}
-				
+
 			</div>
 		</div>
 	</div>
@@ -151,7 +152,7 @@
 {% endblock meterial %}
 
 {% block modal_block %}
-	{% contact_form request %}
+{% contact_form request %}
 {% endblock modal_block %}
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript">
