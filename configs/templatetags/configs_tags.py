@@ -68,3 +68,14 @@ def contact_widget(context, request):
         'request': request,
     }
 register.inclusion_tag('configs/tags/contact_widget.html', takes_context=True)(contact_widget)
+
+
+def calc(context, request):
+    config = get_site_config(request)
+    performer_profile = config.account.performer_of_account
+    return {
+        'config': config,
+        'performer_profile': performer_profile,
+        'request': request,
+    }
+register.inclusion_tag('configs/tags/calc.html', takes_context=True)(calc)

@@ -131,6 +131,7 @@
 <script src="/static/assets/libs/owl-carousel-2.0/owl.carousel.min.js"></script>
 <script src="/static/assets/libs/magnific-popup/jquery.magnific-popup.js"></script>
 <script src="/static/monolit/js/popup.js"></script>
+<script src="/static/monolit/js/code.js"></script>
 <script src="/static/assets/libs/fancybox/js/jquery.fancybox.js"></script>
 <script src="/static/assets/libs/fancybox/js/jquery.fancybox-buttons.js"></script>
 <script src="/static/assets/libs/appear/jquery.appear.js"></script>
@@ -181,6 +182,14 @@
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }
     })(document, window, "yandex_metrika_callbacks");
+</script>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+	 jQuery('.spoiler-title').click(function(){
+		jQuery(this).parent().children('.spoiler-body').slideToggle(500);
+		return false;
+	 });
+	});
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/36770160" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->

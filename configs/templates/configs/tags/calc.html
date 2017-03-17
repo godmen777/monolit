@@ -1,0 +1,149 @@
+<div class="calc">
+  <div class="container">
+    <h3>Калькулятор стоимости ремонта квартиры</h3>
+    <div class="b-post-content col-md-10 col-md-offset-1">
+      <div class="l-container--small">
+        <div class="b-form-calculator">
+          <h4 class="st-center st-purple">выберите тип ремонта</h4>
+          <form class="formCalc">
+            <div class="form-content">
+              <div class="b-select-repair repair-type btn-group" data-toggle="buttons">
+                <div class="b-select-repair__item__content">
+                  <label class="btn btn-blue" onclick="document.getElementById('one').style.display = 'block'; document.getElementById('two').style.display = 'none'; document.getElementById('three').style.display = 'none'"><input data-price="3000" name="тип ремонта" type="radio" value="косметический">косметический</label>
+                </div>
+                <div class="b-select-repair__item__content">
+                  <label class="btn btn-blue" onclick="document.getElementById('two').style.display = 'block'; document.getElementById('one').style.display = 'none'; document.getElementById('three').style.display = 'none'"><input data-price="6000" name="тип ремонта" type="radio" value="капитальный"> КАПИТАЛЬНЫЙ</label>
+                </div>
+                <div class="b-select-repair__item__content">
+                    <label class="btn btn-blue" onclick="document.getElementById('three').style.display = 'block'; document.getElementById('one').style.display = 'none'; document.getElementById('two').style.display = 'none'"><input data-price="8000" name="тип ремонта" type="radio" value="евроремонт"> ЕВРОРЕМОНТ</label>
+                </div>
+              </div>
+
+              <div class="text-tip-rem-calc">
+                <div class="b-form-calculator__about" id="one" style="display: none;">
+                  <h5><b>Косметический от 3000 рублей за м2</b></h5>
+                  <p>В течение короткого срока времени наша компания поможет вам освежить интерьер, выполнив косметические ремонтные работы, а именно: демонтажные работы, поклейка обоев, укладка напольного покрытия, покраска потолка, частичная замена сантехники и электрики, укладка плитки.</p>
+                </div>
+                <div class="b-form-calculator__about" id="two" style="display: none;">
+                  <h5><b>Капитальный от 6000 рублей за м2</b></h5>
+                  <p>Если вы стали счастливым обладателем квартиры в новостройке с голыми бетонными стенами или вторичного жилья, в котором требуется основательный ремонт, тогда вам потребуются следующие виды работ: монтаж межкомнатных перегородок, разводка сантехники и электрики, покраска стен или нанесение декоративной штукатурки, укладка паркетной доски на пол, плитка или мозаика в ванную комнату для пола и стен , отштукатуренный потолок или потолок из гипсокартона.</p>
+                </div>
+                <div class="b-form-calculator__about" id="three" style="display: none;">
+                  <h5><b>Премиум от 8000 рублей за м2</b></h5>
+                  <p>Работа с дизайн-проектами - кредо нашей компании, сделать в квартире индивидуальную эксклюзивную отделку, воплотив в жизнь все ваши идеи и современные технологии, это работа по дизайн-проекту с авторским сопровождением дизайнера.</p>
+                </div>
+              </div>
+                <div class="b-form-calculator__material">
+                  <h4 class="st--purple st--center">укажите желаемый вид отделки</h4>
+                  <div class="b-form-calculator__material__list">
+                    <div class="b-form-calculator__material__item">
+                      <div class="b-form-calculator__material__item__title">
+                        Пол
+                      </div><select name="Пол">
+                        <option data-price="220" value="Ламинат">
+                          Ламинат
+                        </option>
+                        <option data-price="650" value="Плитка">
+                          Плитка
+                        </option>
+                        <option data-price="650" value="Паркетная доска">
+                          Паркетная доска
+                        </option>
+                        <option data-price="0" value="Пробка">
+                          Пробка
+                        </option>
+                        <option data-price="0" value="Линолиум">
+                          Линолиум
+                        </option>
+                        <option data-price="0" value="Комбинированное">
+                          Комбинированное
+                        </option>
+                      </select>
+                    </div><!--.b-form-calculator__material__item-->
+                    <div class="b-form-calculator__material__item">
+                      <div class="b-form-calculator__material__item__title">
+                        Стены
+                      </div><select name="Стены">
+                        <option data-price="220" value="Обои">
+                          Обои
+                        </option>
+                        <option data-price="180" value="Обои под краску">
+                          Обои под краску
+                        </option>
+                        <option data-price="130" value="Покраска">
+                          Покраска
+                        </option>
+                        <option data-price="240" value="Декоративная штукатурка">
+                          Декоративная штукатурка
+                        </option>
+                        <option data-price="0" value="Жидкие обои">
+                          Жидкие обои
+                        </option>
+                        <option data-price="0" value="Комбинированное">
+                          Комбинированное
+                        </option>
+                      </select>
+                    </div><!--.b-form-calculator__material__item-->
+                    <div class="b-form-calculator__material__item">
+                      <div class="b-form-calculator__material__item__title">
+                        Потолок
+                      </div><select name="Потолок">
+                        <option data-price="350" value="Отштукаренный">
+                          Отштукаренный
+                        </option>
+                        <option data-price="300" value="Натяжной">
+                          Натяжной
+                        </option>
+                        <option data-price="0" value="Из гипсокартона">
+                          Из гипсокартона
+                        </option>
+                        <option data-price="0" value="Комбинированный">
+                          Комбинированный
+                        </option>
+                      </select>
+                    </div><!--.b-form-calculator__material__item-->
+                  </div><!--.b-form-calculator__material__list-->
+                </div><!--.b-form-calculator__material-->
+                <div class="b-form-calculator__dop">
+                  <div class="b-form-calculator__dop__content">
+                    <h4 class="st--purple st--center">Дополнительно</h4>
+                    <div class="b-form-calculator__dop__list btn-group" data-toggle="buttons">
+                      <div class="b-select-repair__item__content">
+                        <label class="btn btn-blue"><input data-price="1000" name="дополнительно" type="checkbox" value="электрика"> электрика</label>
+                      </div>
+                      <div class="b-select-repair__item__content">
+                        <label class="btn btn-blue"><input data-price="1400" name="дополнительно" type="checkbox" value="сантехника"> сантехника</label>
+                      </div><label class="b-select-repair__item"></label>
+                    </div>
+                  </div>
+                </div>
+              <div class="b-form-calculator__size">
+                <div class="b-form-calculator__size__content">
+                  <h6 class="st--purple st--center">укажите площадь помещения</h6>
+                  <div class="b-form-calculator__size__list">
+                    <div class="b-form-calculator__size__item b-form-calculator__size__item--s">
+                      <div class="b-form-calculator__size__item__input">
+                        <input class="square_all" data-multiply="true" data-price="0" name="Общая площадь" type="text">
+                      </div><span class='bold'>Общая площадь,</span> м2
+                    </div>
+                    <div class="b-form-calculator__size__item">
+                      <div class="b-form-calculator__size__item__text">
+                        <div class="b-form-calculator__price"></div>
+                      </div>Стоимость ремонта<span class='rub'>₽</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="b-form-calculator__manager-text" style="margin-top: 30px;">Данный расчет является предварительным.<br>
+              Чтобы произвести более точный расчет, оставьте заявку нашему менеджеру.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="bt-calc col-md-12">
+      <a data-toggle="modal" data-target="#contactForm" class="btn btn-blue accent">Оставить заявку</a>
+    </div>
+  </div>
+</div>
