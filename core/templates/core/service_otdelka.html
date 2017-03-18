@@ -16,7 +16,7 @@
         <div class="es1__menu">
           <ul>
             <li>
-              <a href="/services/<otdelka-kvartir/"><img src="/static/monolit/images/otdelka-icons.png" alt="">Отделка квартир</a>
+              <a href="/services/otdelka-kvartir/"><img src="/static/monolit/images/otdelka-icons.png" alt="">Отделка квартир</a>
             </li>
             <li>
               <a href="/services/remont-vannoj-komnaty/"><img src="/static/monolit/images/bathtub-icons.png" alt="">Ремонт ванной комнаты</a>
@@ -108,139 +108,36 @@
   </div>
 </div>
 <div class="services-remont">
-<div class="container">
+  <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-12">
-            <div class="title">
-                <h3>Наши услуги</h3>
-            </div>
-        </div>
-    </div>
-  <div class="row">
-    <div class="services__items">
-      <div class="services__small-mobile col-xs-6 col-sm-4">
-        <div class="services__item">
-            <a class="services__link" href="services/otdelka-kvartir/">
-                <img alt="" class="services__img" src="/static/monolit/images/otdelka-kvartir.png">
-                <div class="services__info-block">
-                    <div class="services__info-content-wrapper">
-                        <div class="services__info-content">
-                            <div class="services__text">
-                                Отделка
-                            </div>
-                            <div class="services__name">
-                                квартиры
-                            </div>
-                            <div class="services__line"></div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-          </div>
-        </div>
-      <div class="services__small-mobile col-xs-6 col-sm-4">
-        <div class="services__item">
-            <a class="services__link" href="services/remont-kottedzhej/">
-                <img alt="" class="services__img" src="/static/monolit/images/otdelka-kotedj.png">
-                <div class="services__info-block">
-                    <div class="services__info-content-wrapper">
-                        <div class="services__info-content">
-                            <div class="services__text">
-                                Ремонт
-                            </div>
-                            <div class="services__name">
-                                коттеджа
-                            </div>
-                            <div class="services__line"></div>
-                        </div>
-                    </div>
-                </div>
-            </a>
+      <div class="col-xs-12 col-sm-12">
+        <div class="title">
+          <h3>Наши услуги</h3>
         </div>
       </div>
-      <div class="services__small-mobile col-xs-6 col-sm-4">
-        <div class="services__item">
-            <a class="services__link" href="services/remont-ofisov/">
-                <img alt="" class="services__img" src="/static/monolit/images/otdelka-ofis.png">
-                <div class="services__info-block">
-                    <div class="services__info-content-wrapper">
-                        <div class="services__info-content">
-                            <div class="services__text">
-                                Ремонт
-                            </div>
-                            <div class="services__name">
-                                офиса
-                            </div>
-                            <div class="services__line"></div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
     </div>
-    <div class="services__small-mobile col-xs-6 col-sm-4">
-        <div class="services__item">
-            <a class="services__link" href="services/remont-vannoj-komnaty/">
-                <img alt="" class="services__img" src="/static/monolit/images/otdelka-bathtub.png">
+    <div class="row">
+      <div class="services__items">
+        {% for serv in children %}
+          <div class="services__small-mobile col-xs-6 col-sm-4">
+            <div class="services__item">
+              <a class="services__link" href="{{ serv.get_url }}">
+                <img alt="" class="services__img" src="{% cropped_thumbnail serv 'image_set_crop' scale=1 %}">
                 <div class="services__info-block">
-                    <div class="services__info-content-wrapper">
-                        <div class="services__info-content">
-                            <div class="services__text">
-                                Ремонт
-                            </div>
-                            <div class="services__name">
-                                ванной комнаты
-                            </div>
-                            <div class="services__line"></div>
-                        </div>
+                  <div class="services__info-content-wrapper">
+                    <div class="services__info-content">
+                      <div class="services__name">{{ serv.name }}</div>
+                      <a href="{{ serv.get_url }}" class="btn btn-blue">подробнее</a>
                     </div>
+                  </div>
                 </div>
-            </a>
-        </div>
-    </div>
-    <div class="services__small-mobile col-xs-6 col-sm-4">
-        <div class="services__item">
-            <a class="services__link" href="services/remont-komnaty/">
-                <img alt="" class="services__img" src="/static/monolit/images/otdelka-komnata.png">
-                <div class="services__info-block">
-                    <div class="services__info-content-wrapper">
-                        <div class="services__info-content">
-                            <div class="services__text">
-                                Ремонт
-                            </div>
-                            <div class="services__name">
-                                комнаты
-                            </div>
-                            <div class="services__line"></div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-    <div class="services__small-mobile col-xs-6 col-sm-4">
-        <div class="services__item">
-            <a class="services__link" href="services/remont-kuhni/">
-                <img alt="" class="services__img" src="/static/monolit/images/otdelka-kuchnya.png">
-                <div class="services__info-block">
-                    <div class="services__info-content-wrapper">
-                        <div class="services__info-content">
-                            <div class="services__text">
-                                Ремонт
-                            </div>
-                            <div class="services__name">
-                                кухни
-                            </div>
-                            <div class="services__line"></div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
+              </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
-</div>
 </div>
 <div class="otdelka-pri">
   <div class="container">

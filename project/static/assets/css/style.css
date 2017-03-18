@@ -302,11 +302,12 @@ img.services__img {
     font-size: 25px;
 }
 .services__name {
-    color: #fff;
-    font-size: 25px;
-    margin-top: 10px;
-    text-transform: uppercase;
-     font-weight: 700;
+  color: #fff;
+  font-size: 22px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 .services__link:hover .services__info-content-wrapper {
     background-color: rgba(32, 27, 26, 0.72);
@@ -316,6 +317,9 @@ img.services__img {
     font-size: 16px;
     min-height: 96px;
 
+}
+table.table.table-condensed td p {
+    margin-bottom: 0;
 }
 .otdelka-pri .col-md-4 span {
     float: left;
@@ -329,6 +333,7 @@ img.services__img {
   font-size: 2.143em;
   color: #37474F;
   font-weight: 900;
+  text-align: center;
 }
 .subtitle {
     text-align: center;
